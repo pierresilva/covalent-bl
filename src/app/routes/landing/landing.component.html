@@ -1,0 +1,95 @@
+<td-layout-manage-list #manageList [opened]="media.registerQuery('gt-sm') | async" [mode]="(media.registerQuery('gt-sm') | async) ? 'side' :  'over'"
+  [sidenavWidth]="!miniNav ? '257px' : '64px'">
+  <div td-sidenav-content layout="column" layout-fill>
+    <!-- <mat-toolbar>
+      <mat-icon class="push-left-xs"
+                [matTooltip]="!miniNav ? '' : 'Dashboards'"
+                matTooltipPosition="after">dashboard</mat-icon>
+      <span *ngIf="!miniNav" class="push-left-sm">Dashboards</span>
+    </mat-toolbar> -->
+    <mat-nav-list flex [tdLayoutManageListClose]="!media.query('gt-sm')" class="scroll">
+      <ng-template let-item let-index="index" let-last="last" ngFor [ngForOf]="[0, 1, 2, 3]">
+        <a mat-list-item>
+          <mat-icon matListIcon [matTooltip]="!miniNav ? '' : 'Dashboard ' + index" matTooltipPosition="after">dashboard</mat-icon>
+          <span *ngIf="!miniNav">Dashboard {{index}}</span>
+        </a>
+      </ng-template>
+      <mat-divider></mat-divider>
+      <a mat-list-item>
+        <mat-icon matListIcon [matTooltip]="!miniNav ? '' : 'Add Dashboard'" matTooltipPosition="after">add</mat-icon>
+        <span *ngIf="!miniNav">Add Dashboard</span>
+      </a>
+    </mat-nav-list>
+    <div class="pad-sm" layout="row" layout-align="space-between center">
+      <button type="button" mat-icon-button (click)="toggleMiniNav()">
+        <mat-icon [@tdRotate]="miniNav">keyboard_arrow_left</mat-icon>
+      </button>
+      <span *ngIf="!miniNav" class="mat-caption">&copy; 2017 Your Company, Inc.</span>
+    </div>
+  </div>
+
+  <mat-sidenav-container flex>
+
+    <mat-sidenav #sidenav position="end">
+      <div layout="column" layout-fill>
+        <mat-toolbar>Settings</mat-toolbar>
+        <div flex class="mat-content">
+          {{ 'demo.text' | translate }}
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <bl-timeline>
+        <bl-timeline-item blColor="green">Create a services site 2015-09-01</bl-timeline-item>
+        <bl-timeline-item blColor="green">Solve initial network problems 2015-09-01</bl-timeline-item>
+        <bl-timeline-item blColor="red">
+          <p>Solve initial network problems 1</p>
+          <p>Solve initial network problems 2</p>
+          <p>Solve initial network problems 3 2015-09-01</p>
+        </bl-timeline-item>
+        <bl-timeline-item blColor="blue">
+          <p>Technical testing 1</p>
+          <p>Technical testing 2</p>
+          <p>Technical testing 3 2015-09-01</p>
+        </bl-timeline-item>
+      </bl-timeline>
+
+      <ng-template #template>
+        <div class="bl-notification-notice-content">
+          <div class="bl-notification-notice-with-icon">
+            <span class="bl-notification-notice-icon">
+              <mat-icon class="mat-26" style="color: blue;">highlight_off</mat-icon>
+            </span>
+            <div class="bl-notification-notice-message">Notification Title</div>
+            <div class="bl-notification-notice-description">
+              This is the content of the notification. This is the content of the notification. This is the content of
+              the notification.
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <button mat-button (click)="createBasicNotification(template)">Open the notification box</button>
+      <button mat-button (click)="createMessage('success')">Success</button>
+    </mat-sidenav>
+
+    <td-layout-nav color="none" style="min-height: calc(100vh - 100px)">
+      <div td-toolbar-content flex layout="row" layout-align="start center">
+        <button mat-icon-button tdLayoutManageListToggle>
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span hide-xs>Dashboard 1</span>
+        <span flex></span>
+
+        <button matTooltip="Dashboard Settings" matTooltipPosition="before" type="button" mat-icon-button (click)="sidenav.open()">
+          <mat-icon>settings</mat-icon>
+        </button>
+      </div>
+      <div flex layout-gt-sm="row" tdMediaToggle="gt-xs" layout-wrap [mediaClasses]="['push-sm']">
+        <router-outlet></router-outlet>
+      </div>
+    </td-layout-nav>
+  </mat-sidenav-container>
+</td-layout-manage-list>

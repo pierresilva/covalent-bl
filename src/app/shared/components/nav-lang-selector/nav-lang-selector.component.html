@@ -1,0 +1,14 @@
+<span>
+  <button mat-icon-button matTooltip="{{'app.language.tooltip.text' | translate }}" [mat-menu-trigger-for]="more">
+    <mat-icon>g_translate</mat-icon>
+  </button>
+  <mat-menu xPosition="before" #more="matMenu">
+    <ng-container *ngFor="let lang of langs" >
+      <button mat-menu-item (click)="setLanguage(lang.code)" *ngIf="getCurrentLanguage !== lang.code">
+        <span class="flag-icon flag-icon-{{lang.flag}} flag-icon-squared" style="padding-right: 12px;"></span>
+        <span>{{lang.name}}</span>
+      </button>
+    </ng-container>
+
+  </mat-menu>
+</span>

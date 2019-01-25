@@ -3,7 +3,25 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  useHash: false,
+  app_title: 'Angular Baseline',
+  app_url: 'http://lapp-baseline.test/',
+  api_prefix: 'api/',
+  app_prefix: 'bl_',
+  theme: 'theme-light',
+  langs: [
+    {
+      name: 'Español',
+      code: 'es',
+      flag: 'es',
+    },
+    {
+      name: 'English',
+      code: 'en',
+      flag: 'gb',
+    },
+  ],
 };
 
 /*

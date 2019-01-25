@@ -1,0 +1,8 @@
+<div
+  class="bl-notification bl-notification-{{config.blPlacement}}"
+  [style.top]="(config.blPlacement==='topLeft'||config.blPlacement=='topRight')? config.blTop:null"
+  [style.bottom]="(config.blPlacement==='bottomLeft'||config.blPlacement=='bottomRight')? config.blBottom:null"
+  [style.right]="(config.blPlacement==='bottomRight'||config.blPlacement=='topRight')?'0px':null"
+  [style.left]="(config.blPlacement==='topLeft'||config.blPlacement=='bottomLeft')?'0px':null">
+  <bl-notification *ngFor="let message of messages; let i = index" [blMessage]="message" [blIndex]="i"></bl-notification>
+</div>

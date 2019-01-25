@@ -1,0 +1,20 @@
+{
+  "demo.title": "Demo de traducción",
+  "demo.text": "Este es un texto sencillo traducido po ngx-translate",
+
+  "app.home": "Inicio",
+  "app.language.tooltip.text": "Idioma",
+  "app.theme.tooltip.text": "Tema",
+  "app.theme.light": "Tema claro",
+  "app.theme.dark": "Tema oscuro",
+  "app.auth.login": "Ingresar",
+  "app.auth.register": "Registrarse",
+
+  "forms.field.label.email": "Correo electónico",
+  "forms.field.placeholder.email": "Correo electónico",
+  "forms.field.label.password": "Contraseña",
+  "forms.field.placeholder.password": "Contraseña",
+
+  "forms.field.error.required": "Este campo es requerido.",
+  "forms.field.error.email": "La dirección de correo electrónico no es valida."
+}

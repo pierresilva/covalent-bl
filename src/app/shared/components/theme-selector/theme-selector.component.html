@@ -1,0 +1,15 @@
+<span>
+  <button mat-icon-button matTooltip="{{'app.theme.tooltip.text' | translate }}" [mat-menu-trigger-for]="navThemeSelector">
+    <mat-icon>settings_brightness</mat-icon>
+  </button>
+  <mat-menu xPosition="before" #navThemeSelector="matMenu">
+    <button mat-menu-item *ngIf="activeTheme === 'theme-dark'" (click)="theme.setTheme('theme-light')">
+      <mat-icon>brightness_5</mat-icon>
+      <span>{{'app.theme.light' | translate}}</span>
+    </button>
+    <button mat-menu-item *ngIf="activeTheme === 'theme-light'" (click)="theme.setTheme('theme-dark')">
+      <mat-icon>brightness_2</mat-icon>
+      <span>{{'app.theme.dark' | translate}}</span>
+    </button>
+  </mat-menu>
+</span>

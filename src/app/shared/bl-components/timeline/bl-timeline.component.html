@@ -1,0 +1,24 @@
+<ul
+  class="bl-timeline"
+  [class.bl-timeline-right]="blMode === 'right'"
+  [class.bl-timeline-alternate]="blMode === 'alternate'"
+  [class.bl-timeline-pending]="!!blPending"
+  [class.bl-timeline-reverse]="blReverse"
+  #timeline>
+  <!-- User inserted timeline dots. -->
+  <ng-content></ng-content>
+  <!-- Pending dot. -->
+  <li *ngIf="blPending" class="bl-timeline-item bl-timeline-item-pending">
+    <div class="bl-timeline-item-tail"></div>
+    <div class="bl-timeline-item-head bl-timeline-item-head-custom bl-timeline-item-head-blue">
+      <ng-container *blStringTemplateOutlet="blPendingDot">
+        {{ blPendingDot }}<i *ngIf="!blPendingDot" bl-icon type="loading"></i>
+      </ng-container>
+    </div>
+    <div class="bl-timeline-item-content">
+      <ng-container *blStringTemplateOutlet="blPending">
+        {{ isPendingBoolean ? '' : blPending }}
+      </ng-container>
+    </div>
+  </li>
+</ul>

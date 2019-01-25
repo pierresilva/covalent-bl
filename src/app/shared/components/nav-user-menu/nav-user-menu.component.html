@@ -1,0 +1,20 @@
+<span *ngIf="auth.userLogged">
+  <button mat-icon-button matTooltip="Usuario" [mat-menu-trigger-for]="more">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu xPosition="before" #more="matMenu">
+    <button mat-menu-item (click)="null">
+      <mat-icon>face</mat-icon>
+      <span>Perfil</span>
+    </button>
+    <button mat-menu-item (click)="null">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Salir</span>
+    </button>
+  </mat-menu>
+</span>
+<span *ngIf="!auth.userLogged">
+  <a mat-icon-button matTooltip="{{'app.auth.login' | translate}}" routerLink="/auth">
+    <mat-icon>perm_identity</mat-icon>
+  </a>
+</span>

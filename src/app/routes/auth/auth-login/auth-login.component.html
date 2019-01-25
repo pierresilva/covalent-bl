@@ -1,0 +1,54 @@
+<mat-card>
+  <mat-card-content>
+    <!-- Start pattern -->
+    <div *tdLoading="'isLoading'; mode:'indeterminate'; type:'circle'; strategy:'overlay'; color:'accent'">
+      <div layout="column" layout-align="center center" class="tc-grey-500 mat-typography pad-lg">
+        <img [src]="'assets/images/logo.svg'" style="max-width: 200px;">
+        <!-- <mat-icon matListAvatar class="text-super push-bottom">perm_identity</mat-icon> -->
+        <h2 style="text-transform: uppercase;">{{'app.auth.login' | translate}}</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate style="width: 100%;">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>{{'forms.field.label.email' | translate}}</mat-label>
+            <input matInput
+                   name="email"
+                   formControlName="email"
+                   id="email"
+                   required
+                   type="email"
+                   [placeholder]="translate.instant('forms.field.label.email')">
+            <mat-icon matSuffix>mail_outline</mat-icon>
+            <mat-error *ngIf="loginForm.get('email').invalid">{{getErrorMessage(loginForm.get('email'))}}</mat-error>
+            <!-- <mat-hint *ngIf="email.invalid">Hint</mat-hint> -->
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>{{'forms.field.label.password' | translate}}</mat-label>
+            <input matInput
+                   name="password"
+                   formControlName="password"
+                   id="password"
+                   required
+                   type="password"
+                   [placeholder]="translate.instant('forms.field.label.password')">
+            <mat-icon matSuffix>lock_outline</mat-icon>
+            <mat-error
+              *ngIf="loginForm.get('password').invalid">{{getErrorMessage(loginForm.get('password'))}}</mat-error>
+          </mat-form-field>
+          <button [disabled]="loginForm.invalid" type="submit" style="display:none">hidden submit</button>
+        </form>
+        <button mat-raised-button
+                type="submit"
+                color="accent"
+                class="text-upper"
+                (click)="onSubmit()"
+                [disabled]="loginForm.invalid">{{'app.auth.login' | translate}}
+        </button>
+        <div layout="row" style="padding-top: 20px;">
+          <a href="javascript:;" routerLink="/" mat-button layout-align="left">{{'app.home' | translate}}</a>
+          &nbsp;&nbsp;
+          <a href="javascript:;" routerLink="/auth/register" mat-button layout-align="right">{{'app.auth.register' | translate}}</a>
+        </div>
+      </div>
+      <!-- end pattern -->
+    </div>
+  </mat-card-content>
+</mat-card>

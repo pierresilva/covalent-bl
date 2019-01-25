@@ -1,0 +1,19 @@
+<li
+  class="bl-timeline-item"
+  [class.bl-timeline-item-right]="position === 'right'"
+  [class.bl-timeline-item-left]="position === 'left'"
+  [class.bl-timeline-item-last]="isLast"
+  #liTemplate>
+  <div class="bl-timeline-item-tail"></div>
+  <div
+    class="bl-timeline-item-head"
+    [class.bl-timeline-item-head-red]="blColor === 'red'"
+    [class.bl-timeline-item-head-blue]="blColor === 'blue'"
+    [class.bl-timeline-item-head-green]="blColor === 'green'"
+    [class.bl-timeline-item-head-custom]="!!blDot">
+    <ng-container *blStringTemplateOutlet="blDot">{{ blDot }}</ng-container>
+  </div>
+  <div class="bl-timeline-item-content">
+    <ng-content></ng-content>
+  </div>
+</li>

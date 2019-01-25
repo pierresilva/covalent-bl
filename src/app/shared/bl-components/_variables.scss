@@ -1,0 +1,23 @@
+$notification-width: 384px;
+$notification-padding-vertical: 16px;
+$notification-padding-horizontal: 24px;
+$notification-padding: $notification-padding-vertical $notification-padding-horizontal;
+$notification-margin-bottom: 16px;
+$zindex-notification: 10000;
+$border-radius-base: 2px;
+$component-background: rgba(255, 255, 255, 1);
+$font-size-base: 14px;
+$font-size-sm: 10pz;
+$font-size-lg: 18px;
+$text-color: #555;
+$text-color-secondary: #666;
+$heading-color: #222;
+$success-color: green;
+$error-color: red;
+$warning-color: orange;
+$info-color: blue;
+$border-color-split: gray;
+$primary-color: gray;
+$line-height-base: 1;
+
+$shadow-2: 2px 2px 4px 0px rgba(0,0,0,0.5);

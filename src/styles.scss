@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+.td-layout-manage-list-sidenav::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+
+.td-layout-manage-list-sidenav::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.26);
+}
+
+.td-layout-manage-list-sidenav {
+  overflow-x: hidden;
+}
+
+.user-nav-header .mat-icon-logo.mat-icon {
+  width: 56px;
+  height: 56px;
+  padding-bottom: 10px;
+}
+
+.user-nav-header .td-navigation-drawer-title {
+  font-weight: bold;
+  padding-left: 12px;
+}
+
+.mat-tooltip {
+  font-size: 14px !important;
+}
+
+.menu-list-item.mat-list-item {
+  .mat-list-item-content {
+    flex: 1 1 100%;
+  }
+}
+
+@import "./app/shared/bl-components/bl-components"

@@ -1,0 +1,17 @@
+<div class="bl-message-notice"
+  [@enterLeave]="blMessage.state"
+  (mouseenter)="onEnter()"
+  (mouseleave)="onLeave()">
+  <div class="bl-message-notice-content">
+    <div class="bl-message-custom-content" [ngClass]="'bl-message-' + blMessage.type">
+      <ng-container [ngSwitch]="blMessage.type">
+          <mat-icon *ngSwitchCase="'success'" inline>check_circle_outline</mat-icon>
+          <mat-icon *ngSwitchCase="'info'">add_circle_outline</mat-icon>
+          <mat-icon *ngSwitchCase="'warning'">error_outline</mat-icon>
+          <mat-icon *ngSwitchCase="'error'">highlight_off</mat-icon>
+          <mat-icon *ngSwitchCase="'loading'">access_time</mat-icon>
+      </ng-container>
+      <span [innerHTML]="blMessage.content"></span>
+    </div>
+  </div>
+</div>

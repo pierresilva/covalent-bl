@@ -1,0 +1,6 @@
+<span flex *ngIf="!searchBox.searchVisible"></span>
+<td-search-box hide-xs
+               #searchBox
+               flex
+               [ngClass]="{'push-left push-right mat-whiteframe-z1 bgc-white tc-black': searchBox.searchVisible }"
+               placeholder="search"></td-search-box>

@@ -1,0 +1,27 @@
+<div class="bl-notification-notice bl-notification-notice-closable"
+  [ngStyle]="blMessage.options.blStyle"
+  [ngClass]="blMessage.options.blClass"
+  [@enterLeave]="state"
+  (mouseenter)="onEnter()"
+  (mouseleave)="onLeave()">
+  <div *ngIf="!blMessage.template" class="bl-notification-notice-content">
+    <div class="bl-notification-notice-content" [ngClass]="{ 'bl-notification-notice-with-icon': blMessage.type !== 'blank' }">
+      <div [class.bl-notification-notice-with-icon]="blMessage.type !== 'blank'">
+        <ng-container [ngSwitch]="blMessage.type">
+          <mat-icon *ngSwitchCase="'success'" class="bl-notification-notice-icon bl-notification-notice-icon-success">check_circle_outline</mat-icon>
+          <mat-icon *ngSwitchCase="'info'" class="bl-notification-notice-icon bl-notification-notice-icon-info">add_circle_outline</mat-icon>
+          <mat-icon *ngSwitchCase="'warning'" class="bl-notification-notice-icon bl-notification-notice-icon-warning">error_outline</mat-icon>
+          <mat-icon *ngSwitchCase="'error'" class="bl-notification-notice-icon bl-notification-notice-icon-error">highlight_off</mat-icon>
+        </ng-container>
+        <div class="bl-notification-notice-message" [innerHTML]="blMessage.title"></div>
+        <div class="bl-notification-notice-description" [innerHTML]="blMessage.content"></div>
+      </div>
+    </div>
+  </div>
+  <ng-template [ngIf]="blMessage.template" [ngTemplateOutlet]="blMessage.template" [ngTemplateOutletContext]="{ $implicit: this }"></ng-template>
+  <a tabindex="0" class="bl-notification-notice-close" (click)="close()">
+    <span class="bl-notification-notice-close-x">
+      <mat-icon class="bl-notification-close-icon">clear</mat-icon>
+    </span>
+  </a>
+</div>

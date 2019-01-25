@@ -1,0 +1,39 @@
+<mat-card flex="30%">
+  <mat-card-content>
+    <!-- Start pattern -->
+    <div layout="column" layout-align="center center" class="tc-grey-500 mat-typography pad-lg">
+      <img [src]="'assets/images/logo.svg'" style="max-width: 200px;">
+      <!-- <mat-icon matListAvatar class="text-super push-bottom">perm_identity</mat-icon> -->
+      <h2>REGISTRO</h2>
+      <form style="width: 100%;">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Nombre</mat-label>
+          <input matInput placeholder="Nombre completo">
+          <mat-icon matSuffix>account_box_outline</mat-icon>
+          <mat-hint>Nombre completo</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Correo electrónico">
+          <mat-icon matSuffix>mail_outline</mat-icon>
+          <mat-hint>Correo electrónico</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Contraseña</mat-label>
+          <input matInput placeholder="Contraseña">
+          <mat-icon matSuffix>lock_outline</mat-icon>
+          <mat-hint>Algo dificil de adivinar</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Repetir contraseña</mat-label>
+          <input matInput placeholder="Repetir contraseña">
+          <mat-icon matSuffix>lock_outline</mat-icon>
+          <mat-hint>Confirme la contraseña</mat-hint>
+        </mat-form-field>
+      </form>
+      <button mat-raised-button color="accent" class="text-upper">Remove Filters</button>
+      <a href="javascript:;" routerLink="/" mat-button>Inicio</a> <a href="javascript:;" routerLink="/auth" mat-button>Ingresar</a>
+    </div>
+    <!-- end pattern -->
+  </mat-card-content>
+</mat-card>
