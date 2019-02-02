@@ -27,6 +27,7 @@ import {
   MatAutocompleteModule,
   MatFormFieldModule,
   MatBottomSheetModule,
+  MatBadgeModule,
 } from '@angular/material';
 
 @NgModule({
@@ -59,6 +60,7 @@ import {
     MatAutocompleteModule,
     MatFormFieldModule,
     MatBottomSheetModule,
+    MatBadgeModule,
   ],
   exports: [
     /** Material Modules */
@@ -87,6 +89,7 @@ import {
     MatAutocompleteModule,
     MatFormFieldModule,
     MatBottomSheetModule,
+    MatBadgeModule,
   ],
 })
 export class MaterialModule { }

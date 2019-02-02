@@ -1,15 +1,19 @@
 <span *ngIf="auth.userLogged">
-  <button mat-icon-button matTooltip="Usuario" [mat-menu-trigger-for]="more">
-    <mat-icon>account_circle</mat-icon>
-  </button>
-  <mat-menu xPosition="before" #more="matMenu">
-    <button mat-menu-item (click)="null">
-      <mat-icon>face</mat-icon>
-      <span>Perfil</span>
+  <bl-badge [blDot]="true" [matMenuTriggerFor]="userMenu" style="cursor: pointer;">
+    <bl-avatar blIcon="perm_identity" [blShape]="'circle'" [blSrc]="'assets/images/avatar.png'"></bl-avatar>
+  </bl-badge>
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>dialpad</mat-icon>
+      <span>Redial</span>
     </button>
-    <button mat-menu-item (click)="null">
-      <mat-icon>exit_to_app</mat-icon>
-      <span>Salir</span>
+    <button mat-menu-item disabled>
+      <mat-icon>voicemail</mat-icon>
+      <span>Check voicemail</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Disable alerts</span>
     </button>
   </mat-menu>
 </span>

@@ -1,0 +1,33 @@
+<span class="bl-input-wrapper bl-input-group" *ngIf="isAddOn">
+  <span class="bl-input-group-addon" *ngIf="blAddOnBefore || blAddOnBeforeIcon">
+    <i bl-icon [ngClass]="blAddOnBeforeIcon" *ngIf="blAddOnBeforeIcon"></i>
+    <ng-container *blStringTemplateOutlet="blAddOnBefore">{{ blAddOnBefore }}</ng-container>
+  </span>
+  <ng-template [ngIf]="!isAffix" *ngTemplateOutlet="contentTemplate"></ng-template>
+  <span class="bl-input-affix-wrapper" [class.bl-input-affix-wrapper-sm]="isSmall" [class.bl-input-affix-wrapper-lg]="isLarge" *ngIf="isAffix">
+    <ng-template *ngTemplateOutlet="affixTemplate"></ng-template>
+  </span>
+  <span class="bl-input-group-addon" *ngIf="blAddOnAfter || blAddOnAfterIcon">
+    <i bl-icon [ngClass]="blAddOnAfterIcon" *ngIf="blAddOnAfterIcon"></i>
+    <ng-container *blStringTemplateOutlet="blAddOnAfter">{{ blAddOnAfter }}</ng-container>
+  </span>
+</span>
+<ng-container *ngIf="isAffix && !isAddOn">
+  <ng-template *ngTemplateOutlet="affixTemplate"></ng-template>
+</ng-container>
+<ng-template #affixTemplate>
+  <span class="bl-input-prefix" *ngIf="blPrefix || blPrefixIcon">
+    <!-- TODO: should have a class to set its color, cc: bld-->
+    <i bl-icon [ngClass]="blPrefixIcon" *ngIf="blPrefixIcon" style="color: rgba(0, 0, 0, 0.25)"></i>
+    <ng-container *blStringTemplateOutlet="blPrefix">{{ blPrefix }}</ng-container>
+  </span>
+  <ng-template *ngTemplateOutlet="contentTemplate"></ng-template>
+  <span class="bl-input-suffix" *ngIf="blSuffix || blSuffixIcon">
+    <i bl-icon [ngClass]="blSuffixIcon" *ngIf="blSuffixIcon"></i>
+    <ng-container *blStringTemplateOutlet="blSuffix">{{ blSuffix }}</ng-container>
+  </span>
+</ng-template>
+<ng-template [ngIf]="isGroup" *ngTemplateOutlet="contentTemplate"></ng-template>
+<ng-template #contentTemplate>
+  <ng-content></ng-content>
+</ng-template>

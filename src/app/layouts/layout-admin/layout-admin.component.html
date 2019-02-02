@@ -1,0 +1,47 @@
+<td-layout>
+  <td-navigation-drawer flex
+                        [tdLayoutOpen]="true"
+                        class="user-nav-header-hidden">
+    <mat-nav-list *ngIf="isLogged">
+      <app-layout-admin-main-menu></app-layout-admin-main-menu>
+    </mat-nav-list>
+  </td-navigation-drawer>
+  <td-layout-nav [logo]="(media.registerQuery('gt-xs') | async) ? 'assets:covalent' : undefined"
+                 [toolbarTitle]="name"
+                 navigationRoute="/">
+    <button *ngIf="isLogged" mat-icon-button td-menu-button tdLayoutToggle>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div td-toolbar-content
+         layout="row"
+         layout-align="start center"
+         flex>
+      <div flex></div>
+      <!--
+      <div mat-stretch-tabs mat-tab-nav-bar class="text-upper main-navigation">
+        <a mat-tab-link [active]="true">
+          <span hide-xs>Home</span>
+          <span hide-gt-xs><mat-icon>home</mat-icon></span>
+        </a>
+        <a mat-tab-link>
+          <span hide-xs>Job Openings</span>
+          <span hide-gt-xs><mat-icon>assignment</mat-icon></span>
+        </a>
+        <a mat-tab-link>
+          <span hide-xs>Leadership</span>
+          <span hide-gt-xs><mat-icon>people</mat-icon></span>
+        </a>
+      </div>
+      -->
+      <button mat-button routerLink="/" class="text-upper main-navigation-button-link">
+        <span hide-xs>Home</span>
+        <span hide-gt-xs><mat-icon>home</mat-icon></span>
+      </button>
+      <bl-nav-user-notifications *ngIf="userLogued"></bl-nav-user-notifications>
+      <bl-theme-selector></bl-theme-selector>
+      <bl-nav-lang-selector></bl-nav-lang-selector>
+      <bl-nav-user-menu></bl-nav-user-menu>
+    </div>
+    <router-outlet></router-outlet>
+  </td-layout-nav>
+</td-layout>

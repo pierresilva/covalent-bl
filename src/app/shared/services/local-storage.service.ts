@@ -28,8 +28,8 @@ export class LocalStorageService {
    * Establece el valor de un item de localStorage
    * @param name
    */
-  public setItem(name: string, value: any): void {
-    localStorage.setItem(this.prefix + name, value);
+  public setItem(name: string, value: any, usePrefix: any = true): void {
+    localStorage.setItem((usePrefix ? this.prefix : '') + name, value);
   }
 
   /**

@@ -4,7 +4,6 @@ import { MatIconRegistry, MatDialog } from '@angular/material';
 import { TdMediaService } from '@covalent/core';
 import { tdRotateAnimation } from '@covalent/core/common';
 import { single, multi, pie, times } from './data';
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'bl-layout-default',

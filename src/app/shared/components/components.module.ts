@@ -10,6 +10,8 @@ import { NavLangSelectorComponent } from './nav-lang-selector/nav-lang-selector.
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { SidenavMenuComponent } from './sidenav-menu/sidenav-menu.component';
+import { BlAvatarModule } from '../bl-components/avatar';
+import { BlBadgeModule } from '../bl-components/badge';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { SidenavMenuComponent } from './sidenav-menu/sidenav-menu.component';
     TranslateModule,
     CovalentModule,
     MaterialModule,
+    BlAvatarModule,
+    BlBadgeModule,
   ],
   exports: [
     NavUserNotificationsComponent,

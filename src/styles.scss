@@ -1,8 +1,15 @@
+.td-layout-manage-list-main .td-layout-manage-list-content {
+  overflow-x: hidden !important;
+}
+
 .td-layout-manage-list-sidenav::-webkit-scrollbar {
   height: 4px;
   width: 4px;
 }
 
+.td-layout-nav-content {
+  overflow-x: hidden;
+}
 .td-layout-manage-list-sidenav::-webkit-scrollbar-thumb {
   background: rgba(0,0,0,.26);
 }
@@ -32,4 +39,4 @@
   }
 }
 
-@import "./app/shared/bl-components/bl-components"
+@import "./app/shared/bl-components/bl-components";

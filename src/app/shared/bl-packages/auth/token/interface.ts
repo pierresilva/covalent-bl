@@ -24,6 +24,12 @@ export interface AuthReferrer {
 }
 
 export interface ITokenService {
+
+  /** Get login address */
+  readonly login_url: string;
+
+  /** Obtain routing information before authorization failure */
+  readonly referrer?: AuthReferrer;
   set(data: ITokenModel): boolean;
 
   /**
@@ -45,10 +51,4 @@ export interface ITokenService {
   clear(): void;
 
   change(): Observable<ITokenModel>;
-
-  /** Get login address */
-  readonly login_url: string;
-
-  /** Obtain routing information before authorization failure */
-  readonly referrer?: AuthReferrer;
 }

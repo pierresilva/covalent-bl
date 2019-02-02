@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BlDisplayErrorComponent } from './services/display-error/display-error.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { BlComponentsModule } from './bl-components/bl-components.module';
+import { BlPackagesModule } from './bl-packages/bl-packages.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { BlComponentsModule } from './bl-components/bl-components.module';
     DirectivesModule,
     InterfacesModule,
     BlComponentsModule,
+    BlPackagesModule,
   ],
   exports: [
     RouterModule,
@@ -43,12 +45,13 @@ import { BlComponentsModule } from './bl-components/bl-components.module';
     BlDisplayErrorComponent,
     TranslateModule,
     BlComponentsModule,
+    BlPackagesModule,
   ],
   entryComponents: [
     BlDisplayErrorComponent,
   ],
   providers: [
-    {
+    /*{
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
       multi: true,
@@ -57,7 +60,7 @@ import { BlComponentsModule } from './bl-components/bl-components.module';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true,
-    },
+    },*/
   ],
 })
 export class SharedModule {

@@ -11,7 +11,7 @@ import {LocalStorageService} from "./local-storage.service";
  */
 export class AuthService {
 
-  public userLogged: boolean = false;
+  public userLogged: boolean = true;
 
   public isLogged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public user: BehaviorSubject<any> = new BehaviorSubject<any>({});

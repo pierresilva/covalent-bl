@@ -1,0 +1,4 @@
+<mat-icon *ngIf="blIcon && hasIcon">{{blIcon}}</mat-icon>
+<!-- <i bl-icon *ngIf="blIcon && hasIcon" [type]="!oldAPIIcon && blIcon" [ngClass]="oldAPIIcon && blIcon"></i> -->
+<img [src]="blSrc" *ngIf="blSrc && hasSrc" (error)="imgError()"/>
+<span class="bl-avatar-string" #textEl [ngStyle]="textStyles" *ngIf="blText && hasText">{{ blText }}</span>

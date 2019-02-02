@@ -1,0 +1,21 @@
+<span (cdkObserveContent)="checkContent()" #contentElement><ng-content></ng-content></span>
+<span class="bl-badge-status-dot bl-badge-status-{{blStatus}}" *ngIf="blStatus" [ngStyle]="blStyle"></span>
+<span class="bl-badge-status-text" *ngIf="blStatus">{{ blText }}</span>
+<sup class="bl-scroll-number"
+  *ngIf="showSup"
+  @zoomAnimation
+  [ngStyle]="blStyle"
+  [class.bl-badge-count]="!blDot"
+  [class.bl-badge-dot]="blDot"
+  [class.bl-badge-multiple-words]="countArray.length>=2">
+  <ng-container *ngFor="let number of maxNumberArray;let i= index;">
+    <span class="bl-scroll-number-only"
+      *ngIf="blCount <= blOverflowCount"
+      [style.transform]="'translateY('+((-countArray[i]*100))+'%)'">
+        <ng-container *ngIf="(!blDot)&&(countArray[i]!=null)">
+          <p *ngFor="let p of countSingleArray" [class.current]="p==countArray[i]">{{ p }}</p>
+        </ng-container>
+    </span>
+  </ng-container>
+  <ng-container *ngIf="blCount > blOverflowCount">{{ blOverflowCount }}+</ng-container>
+</sup>

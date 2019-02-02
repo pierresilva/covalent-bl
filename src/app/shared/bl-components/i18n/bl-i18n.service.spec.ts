@@ -3,7 +3,7 @@ import { Injector } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { filter } from 'rxjs/operators';
 import en_US from './languages/en_US';
-import zh_CN from './languages/zh_CN';
+import es_ES from './languages/es_ES';
 import { BlI18nModule } from './bl-i18n.module';
 import { BlI18nService, BL_I18N_SERVICE_PROVIDER } from './bl-i18n.service';
 import { BL_I18N } from './bl-i18n.token';
@@ -11,7 +11,7 @@ import { BL_I18N } from './bl-i18n.token';
 describe('bl-i18n.service', () => {
   let injector: Injector;
   let srv: BlI18nService;
-  const DEFAULT_LAN = zh_CN;
+  const DEFAULT_LAN = es_ES;
 
   beforeEach(() => {
     injector = TestBed.configureTestingModule({
@@ -35,7 +35,7 @@ describe('bl-i18n.service', () => {
     it('should not trigger change when set same lang', () => {
       spyOn(srv['_change'], 'next');
       expect(srv['_change'].next).not.toHaveBeenCalled();
-      srv.setLocale(zh_CN);
+      srv.setLocale(es_ES);
       expect(srv['_change'].next).not.toHaveBeenCalled();
     });
   });

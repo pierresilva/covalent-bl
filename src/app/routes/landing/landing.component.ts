@@ -4,6 +4,8 @@ import { tdRotateAnimation } from '@covalent/core/common';
 import { BlNotificationService } from '../../shared/bl-components/notification';
 import { BlMessageService } from '../../shared/bl-components/message/bl-message.service';
 
+import * as $ from 'jquery';
+
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -32,6 +34,14 @@ export class LandingComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.media.broadcast();
     this._changeDetectorRef.detectChanges();
+
+    let transitionEnd: any = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
+    let transitionsSupported: any = ( $('.csstransitions').length > 0 );
+    // if browser does not support transitions - use a different event to trigger them
+    if ( !transitionsSupported ) {
+      transitionEnd = 'noTransition';
+    }
+
   }
 
   toggleMiniNav(): void {

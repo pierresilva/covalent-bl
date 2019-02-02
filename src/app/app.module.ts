@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { APP_INITIALIZER, LOCALE_ID, NgModule } from '@angular/core';
 
 // import ngx-translate and the http loader
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
@@ -22,6 +22,24 @@ import { JwtService } from './shared/services/jwt.service';
 import { AuthService } from './shared/services/auth.service';
 import { LoadingService } from './shared/services/loading.service';
 import { environment } from '../environments/environment';
+import { SimpleInterceptor } from './shared/bl-packages/auth';
+import { DefaultInterceptor } from './core/default.interceptor';
+
+import { StartupService } from './core/startup.service';
+export function StartupServiceFactory(
+  startupService: StartupService,
+): Function {
+  return () => startupService.load();
+}
+const APPINIT_PROVIDES: any = [
+  StartupService,
+  {
+    provide: APP_INITIALIZER,
+    useFactory: StartupServiceFactory,
+    deps: [StartupService],
+    multi: true,
+  },
+];
 
 @NgModule({
   declarations: [
@@ -52,6 +70,11 @@ import { environment } from '../environments/environment';
       provide: LOCALE_ID,
       useValue: localStorage.getItem(environment.app_prefix + 'lang'),
     },
+
+    { provide: HTTP_INTERCEPTORS, useClass: SimpleInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: DefaultInterceptor, multi: true },
+
+    ...APPINIT_PROVIDES,
   ],
   bootstrap: [
     AppComponent,

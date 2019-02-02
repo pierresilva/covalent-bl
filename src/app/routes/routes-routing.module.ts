@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutDefaultComponent } from '../layouts/layout-default/layout-default.component';
 import { environment } from '../../environments/environment';
 import { LayoutFullscreenComponent } from '../layouts/layout-fullscreen/layout-fullscreen.component';
+import { LayoutAdminComponent } from '../layouts/layout-admin/layout-admin.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,16 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: './auth/auth.module#AuthModule',
+      },
+    ],
+  },
+  {
+    path: 'admin',
+    component: LayoutAdminComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: './admin/admin.module#AdminModule',
       },
     ],
   },

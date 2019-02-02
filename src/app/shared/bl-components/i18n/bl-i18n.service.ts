@@ -4,9 +4,11 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 import { LoggerService } from '../core/util/logger/logger.service';
 
-import parse from 'date-fns/parse';
+// import parse from 'date-fns/parse';
 
-import zh_CN from './languages/zh_CN';
+let parse = require('date-fns/parse')
+
+import es_ES from './languages/es_ES';
 import { BlI18nInterface } from './bl-i18n.interface';
 import { BL_I18N } from './bl-i18n.token';
 
@@ -16,7 +18,7 @@ export class BlI18nService {
   private _change = new BehaviorSubject<BlI18nInterface>(this._locale);
 
   constructor(@Inject(BL_I18N) locale: BlI18nInterface, private _logger: LoggerService, private datePipe: DatePipe) {
-    this.setLocale(locale || zh_CN);
+    this.setLocale(locale || es_ES);
   }
 
   get localeChange(): Observable<BlI18nInterface> {
