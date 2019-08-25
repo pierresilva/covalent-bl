@@ -14,9 +14,9 @@ export class NavLangSelectorComponent implements OnInit {
   constructor(
     private translateService: TranslateService,
     private localStorage: LocalStorageService,
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   get getCurrentLanguage(): any {
     return this.translateService.getDefaultLang();

@@ -1,4 +1,4 @@
-<span *ngIf="auth.userLogged">
+<span *ngIf="true">
   <bl-badge [blDot]="true" [matMenuTriggerFor]="userMenu" style="cursor: pointer;">
     <bl-avatar blIcon="perm_identity" [blShape]="'circle'" [blSrc]="'assets/images/avatar.png'"></bl-avatar>
   </bl-badge>
@@ -17,7 +17,7 @@
     </button>
   </mat-menu>
 </span>
-<span *ngIf="!auth.userLogged">
+<span *ngIf="false">
   <a mat-icon-button matTooltip="{{'app.auth.login' | translate}}" routerLink="/auth">
     <mat-icon>perm_identity</mat-icon>
   </a>

@@ -9,8 +9,9 @@ import { SettingsService } from '../../../shared/bl-packages/settings';
 import { BLA_SERVICE_TOKEN, ITokenService } from '../../../shared/bl-packages/auth';
 import { _HttpClient } from '../../../shared/bl-packages/http';
 import { BlMessageService } from '../../../shared/bl-components/message';
-import {environment} from "../../../../environments/environment";
-import {CacheService} from "../../../shared/bl-packages/cache";
+import { environment } from "../../../../environments/environment";
+import { CacheService } from "../../../shared/bl-packages/cache";
+import { ACLService } from '../../../shared/bl-packages/acl';
 
 @Component({
   selector: 'app-auth-login',
@@ -37,6 +38,8 @@ export class AuthLoginComponent implements OnInit {
     public http: _HttpClient,
     public msg: BlMessageService,
     public cache: CacheService,
+    public acl: ACLService,
+    public authService: AuthService,
   ) {
   }
 
@@ -63,10 +66,15 @@ export class AuthLoginComponent implements OnInit {
     this.http
       .post(environment.app_url + environment.api_prefix + 'auth/login?_allow_anonymous=true', this.loginForm.value)
       .subscribe((res: any) => {
-        console.info(res.message, res);
         // Set user token information
-        this.tokenService.set(res.response.token);
-        this.cache.set(' /data/user', res.response.user);
+        this.tokenService.set({
+          token: res.response.token,
+          name: res.response.name,
+          email: res.response.email,
+          id: res.response.id,
+          time: res.response.time,
+        });
+        this.cache.set(environment.app_prefix + 'user', res.response.user);
         // Re-acquiring the content of the StartupService, we always think that the application information will
         // generally be affected by the scope of authorization of the current user.
         /*this.startupSrv.load().then(() => {
@@ -74,7 +82,12 @@ export class AuthLoginComponent implements OnInit {
           if (url.includes('/passport')) url = '/';
           this.router.navigateByUrl(url);
         });*/
+
+        this.acl.attachRole(JSON.parse(res.response.user).role);
+        this.acl.attachAbility(JSON.parse(res.response.user).ability);
+        this.authService.isLogged.next(true);
         this._loadingService.resolve('isLoading');
+        this.router.navigateByUrl('/');
       }, (err: any) => {
         console.error(err);
         this._loadingService.resolve('isLoading');

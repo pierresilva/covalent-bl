@@ -406,9 +406,9 @@ export class LayoutDefaultComponent implements OnInit, AfterViewInit {
   ) {
     this._iconRegistry.addSvgIconInNamespace('assets', 'covalent',
       this._domSanitizer.bypassSecurityTrustResourceUrl
-      ('https://raw.githubusercontent.com/Teradata/covalent-quickstart/develop/src/assets/icons/covalent.svg'));
+        ('https://raw.githubusercontent.com/Teradata/covalent-quickstart/develop/src/assets/icons/covalent.svg'));
 
-    Object.assign(this, {pie, single, multi, times});
+    Object.assign(this, { pie, single, multi, times });
   }
 
   ngOnInit(): void {

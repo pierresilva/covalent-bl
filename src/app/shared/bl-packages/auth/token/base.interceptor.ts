@@ -49,7 +49,7 @@ export abstract class BaseInterceptor implements HttpInterceptor {
           url: req.url,
           headers: req.headers,
           status: 401,
-          statusText: `From Auth Intercept --> https://ng-alain.com/docs/auth`,
+          statusText: `From Auth Intercept`,
         });
         observer.error(res);
       });

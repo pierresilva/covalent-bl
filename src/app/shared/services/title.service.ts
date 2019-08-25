@@ -45,16 +45,16 @@ export class TitleService {
         filter((route: any) => route.outlet === 'primary'),
         mergeMap((route: any) => route.data),
         map((data: any) => {
-          if ( data.title ) {
+          if (data.title) {
             // If a route has a title set (e.g. data: {title: "Foo"}) then we use it
             return data.title;
           } else {
             // If not, we do a little magic on the url to create an approximation
             return this.router.url.split('/')
               .reduce((acc: any, frag: any) => {
-                if ( acc && frag ) { acc += SEPARATOR; }
+                if (acc && frag) { acc += SEPARATOR; }
                 return acc + TitleService.ucFirst(frag);
-            });
+              });
           }
         }),
       )

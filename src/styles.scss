@@ -1,3 +1,13 @@
+// Custom style for loading elements without height
+.will-load {
+  min-height: 80px;
+}
+
+// Href line height wasn't right for mat-icon-button
+a[mat-icon-button] {
+  line-height: 36px;
+}
+
 .td-layout-manage-list-main .td-layout-manage-list-content {
   overflow-x: hidden !important;
 }
@@ -10,8 +20,9 @@
 .td-layout-nav-content {
   overflow-x: hidden;
 }
+
 .td-layout-manage-list-sidenav::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,.26);
+  background: rgba(0, 0, 0, .26);
 }
 
 .td-layout-manage-list-sidenav {
@@ -37,6 +48,10 @@
   .mat-list-item-content {
     flex: 1 1 100%;
   }
+}
+
+.mat-nav-list.mat-list-base {
+  padding-top: 0;
 }
 
 @import "./app/shared/bl-components/bl-components";

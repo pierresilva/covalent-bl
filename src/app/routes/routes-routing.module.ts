@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LayoutDefaultComponent } from '../layouts/layout-default/layout-default.component';
 import { environment } from '../../environments/environment';
+import { JWTGuard } from '../shared/bl-packages/auth';
+
+import { LayoutComponent } from '../layouts/layout/layout.component';
+import { LayoutDefaultComponent } from '../layouts/layout-default/layout-default.component';
 import { LayoutFullscreenComponent } from '../layouts/layout-fullscreen/layout-fullscreen.component';
 import { LayoutAdminComponent } from '../layouts/layout-admin/layout-admin.component';
+import { LayoutCustomComponent } from '../layouts/layout-custom/layout-custom.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LayoutDefaultComponent,
+    component: LayoutCustomComponent,
     children: [
       {
         path: '',
-        loadChildren: './landing/landing.module#LandingModule',
+        loadChildren: './home/home.module#HomeModule',
       },
     ],
   },
@@ -29,6 +33,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: LayoutAdminComponent,
+    canActivateChild: [JWTGuard],
     children: [
       {
         path: '',

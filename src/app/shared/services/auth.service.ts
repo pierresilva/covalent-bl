@@ -1,6 +1,7 @@
-import {Injectable} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
-import {LocalStorageService} from "./local-storage.service";
+import { Injectable, Inject } from '@angular/core';
+import { BehaviorSubject } from "rxjs";
+import { LocalStorageService } from "./local-storage.service";
+import { BLA_SERVICE_TOKEN, ITokenService, JWTTokenModel } from '../bl-packages/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -14,10 +15,9 @@ export class AuthService {
   public userLogged: boolean = true;
 
   public isLogged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  public user: BehaviorSubject<any> = new BehaviorSubject<any>({});
 
   constructor(
-    private localStorage: LocalStorageService,
+    @Inject(BLA_SERVICE_TOKEN) private tokenService: ITokenService,
   ) {
     this.init();
     this.isLogged.subscribe((data: any) => {
@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   init(): void {
-    if (this.localStorage.getItem('token')) {
+    if (this.tokenService.get(JWTTokenModel).token) {
       this.isLogged.next(true);
     }
   }

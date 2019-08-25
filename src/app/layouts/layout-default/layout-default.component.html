@@ -1,13 +1,9 @@
 <td-layout [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'push'"
-           [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '300px' : '100%'">
+  [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '300px' : '100%'">
 
-  <td-navigation-drawer flex
-                        class="user-nav-header"
-                        [sidenavTitle]="userLogued ? null : 'Nevegación'"
-                        [logo]="userLogued ? 'assets:user' : null"
-                        [name]="userLogued ? 'Firstname Lastname' : null"
-                        [icon]="!userLogued ? 'more' : null"
-                        [email]="userLogued ? 'firstname.lastname@company.com' : null">
+  <td-navigation-drawer flex class="user-nav-header" [sidenavTitle]="userLogued ? null : 'Nevegación'"
+    [logo]="userLogued ? 'assets:user' : null" [name]="userLogued ? 'Firstname Lastname' : null"
+    [icon]="!userLogued ? 'more' : null" [email]="userLogued ? 'firstname.lastname@company.com' : null">
     <!-- <mat-nav-list [tdLayoutClose]="!media.query('gt-sm')">
       <a *ngFor="let item of routes" mat-list-item>
         <mat-icon matListIcon>{{item.icon}}</mat-icon>{{item.title}}
@@ -32,17 +28,30 @@
     </button>
     <div td-toolbar-content layout="row" layout-align="start center" flex>
       <div flex></div>
+
       <bl-nav-search></bl-nav-search>
-      <bl-nav-user-notifications *ngIf="userLogued"></bl-nav-user-notifications>
+
       <bl-theme-selector></bl-theme-selector>
       <bl-nav-lang-selector></bl-nav-lang-selector>
       <bl-nav-user-menu></bl-nav-user-menu>
+      <bl-nav-user-notifications></bl-nav-user-notifications>
+      <span>
+        <a mat-icon-button matTooltip="Administración" [routerLink]="'/admin'">
+          <mat-icon>account_circle</mat-icon>
+        </a>
+      </span>
+      <span>
+        <a mat-icon-button matTooltip="Administración" [routerLink]="'/auth'">
+          <mat-icon>account_box_outlined</mat-icon>
+        </a>
+      </span>
     </div>
     <router-outlet></router-outlet>
     <td-layout-footer>
       <div layout="row" layout-align="start center">
         <div flex></div>
         <span class="mat-caption">Made with <mat-icon class="text-md">favorite</mat-icon></span>
+        <span>{{'module.test.info.name' | translate}}</span>
       </div>
     </td-layout-footer>
   </td-layout-nav>

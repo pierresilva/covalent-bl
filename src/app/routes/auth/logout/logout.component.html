@@ -1,0 +1,13 @@
+<mat-card style="max-width: 500px;">
+  <mat-card-content>
+    <!-- Start pattern -->
+    <div *tdLoading="'isLoading'; mode:'indeterminate'; type:'circle'; strategy:'overlay'; color:'accent'">
+      <div layout="column" layout-align="center center" class="tc-grey-500 mat-typography pad-lg">
+        <img [src]="'assets/images/logo.svg'" style="max-width: 200px;">
+        <!-- <mat-icon matListAvatar class="text-super push-bottom">perm_identity</mat-icon> -->
+        <h2 style="text-transform: uppercase;">Saliendo del sistema...</h2>
+      </div>
+      <!-- end pattern -->
+    </div>
+  </mat-card-content>
+</mat-card>

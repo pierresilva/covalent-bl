@@ -1,14 +1,23 @@
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import { UtilModule } from '../utils/util.module';
 
+import { ACLIfDirective } from './acl-if.directive';
 import { ACLDirective } from './acl.directive';
+import { ACLService } from './acl.service';
 
-// tslint:disable
-const COMPONENTS = [ACLDirective];
+const COMPONENTS = [ACLDirective, ACLIfDirective];
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, UtilModule],
   declarations: [...COMPONENTS],
   exports: [...COMPONENTS],
 })
-export class ACLModule { }
+export class ACLModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: ACLModule,
+      providers: [ACLService],
+    };
+  }
+}

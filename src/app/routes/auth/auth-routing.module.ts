@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
 import { AuthRegisterComponent } from './auth-register/auth-register.component';
 import { AuthComponent } from './auth.component';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,13 @@ const routes: Routes = [
         component: AuthRegisterComponent,
         data: {
           title: 'Registro como usuario',
+        },
+      },
+      {
+        path: 'logout',
+        component: LogoutComponent,
+        data: {
+          title: 'Salir',
         },
       },
     ],

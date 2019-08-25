@@ -61,8 +61,8 @@ export function BaseHeaders(
   headers:
     | HttpHeaders
     | {
-    [header: string]: string | string[];
-  },
+      [header: string]: string | string[];
+    },
 ) {
   return function <TClass extends { new(...args: any[]): BaseApi }>(
     target: TClass,
@@ -178,7 +178,7 @@ function makeMethod(method: string) {
           body:
             data.body && data.body.length > 0 ? args[data.body[0].index] : null,
           params,
-          headers: {...baseData.baseHeaders, ...headers},
+          headers: { ...baseData.baseHeaders, ...headers },
           ...options,
         });
       };

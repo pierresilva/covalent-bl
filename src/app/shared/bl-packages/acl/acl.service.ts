@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ACLCanType, ACLType } from './acl.type';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 
 /**
  * Access Control Layer service
@@ -50,14 +50,14 @@ export class ACLService {
    * Set current user permission capabilities (will clear all first)
    */
   setAbility(abilities: (number | string)[]): void {
-    this.set({ability: abilities} as ACLType);
+    this.set({ ability: abilities } as ACLType);
   }
 
   /**
    * Set the current user role (will clear all first)
    */
   setRole(roles: string[]): void {
-    this.set({role: roles} as ACLType);
+    this.set({ role: roles } as ACLType);
   }
 
   /**
@@ -135,13 +135,13 @@ export class ACLService {
 
     let t: ACLType = {};
     if (typeof roleOrAbility === 'number') {
-      t = {ability: [roleOrAbility]};
+      t = { ability: [roleOrAbility] };
     } else if (
       Array.isArray(roleOrAbility) &&
       roleOrAbility.length > 0 &&
       typeof roleOrAbility[0] === 'number'
     ) {
-      t = {ability: roleOrAbility};
+      t = { ability: roleOrAbility };
     } else {
       t = this.parseACLType(roleOrAbility);
     }
@@ -172,7 +172,7 @@ export class ACLService {
       typeof value === 'string' ||
       Array.isArray(value)
     ) {
-      value = {ability: Array.isArray(value) ? value : [value]} as ACLType;
+      value = { ability: Array.isArray(value) ? value : [value] } as ACLType;
     }
     delete value.role;
     return value;
@@ -194,7 +194,7 @@ export class ACLService {
       return val as ACLType;
     }
     if (Array.isArray(val)) {
-      return {role: val as string[]} as ACLType;
+      return { role: val as string[] } as ACLType;
     }
     return {
       role: [val],

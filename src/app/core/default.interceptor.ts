@@ -61,7 +61,7 @@ export class DefaultInterceptor implements HttpInterceptor {
       url = url;
     }
 
-    const newReq: any = req.clone({url});
+    const newReq: any = req.clone({ url });
     return next.handle(newReq).pipe(
       mergeMap((event: any) => {
         // Allow unified handling of request errors
@@ -80,11 +80,21 @@ export class DefaultInterceptor implements HttpInterceptor {
   }
 
   private checkStatus(ev: any): void {
+
     if (ev.status >= 200 && ev.status < 300) {
+      // console.info(ev.body);
+      if (ev.body.message) {
+        this.injector.get(BlNotificationService).success(
+          ev.body.message,
+          // tslint:disable-next-line: no-null-keyword
+          null,
+        );
+      }
+
       return;
     }
 
-    const errortext: any = CODEMESSAGE[ev.status] || ev.statusText;
+    const errorText: any = CODEMESSAGE[ev.status] || ev.statusText;
 
     let errors: string = '';
 
@@ -97,11 +107,13 @@ export class DefaultInterceptor implements HttpInterceptor {
         }
       }
     }
+    if (ev.error) {
+      this.injector.get(BlNotificationService).error(
+        ev.error.message ? ev.error.message : `Request error ${ev.status}: ${ev.url}`,
+        errors.length ? errors : errorText,
+      );
+    }
 
-    this.injector.get(BlNotificationService).error(
-      ev.error.message ? ev.error.message : `Request error ${ev.status}: ${ev.url}`,
-      errors.length ? errors : errortext,
-    );
   }
 
   private handleData(ev: HttpResponseBase): Observable<any> {
@@ -159,6 +171,7 @@ export class DefaultInterceptor implements HttpInterceptor {
         break;
       default:
         if (ev instanceof HttpErrorResponse) {
+          // tslint:disable-next-line: no-console
           console.warn('I don\'t know the error, most of it is caused by the backend not supporting CORS or invalid configuration.', ev);
           return throwError(ev);
         }

@@ -1,39 +1,59 @@
-<mat-card flex="30%">
+<mat-card style="max-width: 500px;">
   <mat-card-content>
     <!-- Start pattern -->
-    <div layout="column" layout-align="center center" class="tc-grey-500 mat-typography pad-lg">
-      <img [src]="'assets/images/logo.svg'" style="max-width: 200px;">
-      <!-- <mat-icon matListAvatar class="text-super push-bottom">perm_identity</mat-icon> -->
-      <h2>REGISTRO</h2>
-      <form style="width: 100%;">
-        <mat-form-field appearance="outline" style="width: 100%;">
-          <mat-label>Nombre</mat-label>
-          <input matInput placeholder="Nombre completo">
-          <mat-icon matSuffix>account_box_outline</mat-icon>
-          <mat-hint>Nombre completo</mat-hint>
-        </mat-form-field>
-        <mat-form-field appearance="outline" style="width: 100%;">
-          <mat-label>Email</mat-label>
-          <input matInput placeholder="Correo electrónico">
-          <mat-icon matSuffix>mail_outline</mat-icon>
-          <mat-hint>Correo electrónico</mat-hint>
-        </mat-form-field>
-        <mat-form-field appearance="outline" style="width: 100%;">
-          <mat-label>Contraseña</mat-label>
-          <input matInput placeholder="Contraseña">
-          <mat-icon matSuffix>lock_outline</mat-icon>
-          <mat-hint>Algo dificil de adivinar</mat-hint>
-        </mat-form-field>
-        <mat-form-field appearance="outline" style="width: 100%;">
-          <mat-label>Repetir contraseña</mat-label>
-          <input matInput placeholder="Repetir contraseña">
-          <mat-icon matSuffix>lock_outline</mat-icon>
-          <mat-hint>Confirme la contraseña</mat-hint>
-        </mat-form-field>
-      </form>
-      <button mat-raised-button color="accent" class="text-upper">Remove Filters</button>
-      <a href="javascript:;" routerLink="/" mat-button>Inicio</a> <a href="javascript:;" routerLink="/auth" mat-button>Ingresar</a>
+    <div *tdLoading="'isLoading'; mode:'indeterminate'; type:'circle'; strategy:'overlay'; color:'accent'">
+      <div layout="column" layout-align="center center" class="tc-grey-500 mat-typography pad-lg">
+        <img [src]="'assets/images/logo.svg'" style="max-width: 200px;">
+        <!-- <mat-icon matListAvatar class="text-super push-bottom">perm_identity</mat-icon> -->
+        <h2 style="text-transform: uppercase;">{{'app.auth.register' | translate}}</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate style="width: 100%;">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>{{'forms.field.label.name' | translate}}</mat-label>
+            <input matInput name="name" formControlName="name" id="name" required type="text"
+              [placeholder]="translate.instant('forms.field.label.name')">
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-error *ngIf="registerForm.get('name').invalid">{{getErrorMessage(registerForm.get('name'))}}
+            </mat-error>
+            <!-- <mat-hint *ngIf="email.invalid">Hint</mat-hint> -->
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>{{'forms.field.label.email' | translate}}</mat-label>
+            <input matInput name="email" formControlName="email" id="email" required type="email"
+              [placeholder]="translate.instant('forms.field.label.email')">
+            <mat-icon matSuffix>mail_outline</mat-icon>
+            <mat-error *ngIf="registerForm.get('email').invalid">{{getErrorMessage(registerForm.get('email'))}}
+            </mat-error>
+            <!-- <mat-hint *ngIf="email.invalid">Hint</mat-hint> -->
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>{{'forms.field.label.password' | translate}}</mat-label>
+            <input matInput name="password" formControlName="password" id="password" required type="password"
+              [placeholder]="translate.instant('forms.field.label.password')">
+            <mat-icon matSuffix>lock_outline</mat-icon>
+            <mat-error *ngIf="registerForm.get('password').invalid">{{getErrorMessage(registerForm.get('password'))}}
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>{{'forms.field.label.password_confirmation' | translate}}</mat-label>
+            <input matInput name="password_confirmation" formControlName="password_confirmation"
+              id="password_confirmation" required type="password"
+              [placeholder]="translate.instant('forms.field.label.password_confirmation')">
+            <mat-icon matSuffix>lock_outline</mat-icon>
+            <mat-error *ngIf="registerForm.get('password_confirmation').invalid">
+              {{getErrorMessage(registerForm.get('password_confirmation'))}}
+            </mat-error>
+          </mat-form-field>
+          <button [disabled]="registerForm.invalid" type="submit" style="display:none">hidden submit</button>
+        </form>
+        <button mat-raised-button type="submit" color="accent" class="text-upper" (click)="onSubmit()"
+          [disabled]="registerForm.invalid">{{'app.auth.register' | translate}}</button>
+        <div layout="row" style="padding-top: 20px;">
+          <a href="javascript:;" routerLink="/" mat-button layout-align="left">{{'app.home' | translate}}</a>
+          &nbsp;&nbsp;
+          <a href="javascript:;" routerLink="/auth" mat-button layout-align="right">{{'app.auth.login' | translate}}</a>
+        </div>
+      </div>
+      <!-- end pattern -->
     </div>
-    <!-- end pattern -->
   </mat-card-content>
 </mat-card>

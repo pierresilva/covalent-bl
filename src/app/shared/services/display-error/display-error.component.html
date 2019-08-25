@@ -1,7 +1,8 @@
 <div layout="row" layout-align="left center" [ngStyle]="{'color': data.color ? data.color : '#222'}">
-  <mat-icon style="font-size: 34px;">{{data.icon ? data.icon : 'error'}}</mat-icon><h1>{{data.title ? data.title : 'HTTP ERROR'}}</h1>
+  <mat-icon style="font-size: 34px;">{{data.icon ? data.icon : 'error'}}</mat-icon>
+  <h1>{{data.title ? data.title : 'HTTP ERROR'}}</h1>
 </div>
 <ng-container *ngIf="data.errors">
-  <div layout="row" layout-align="left center" *ngFor="let error of data.errors" style="padding-left: 40px;" [ngStyle]="{'color': data.color ? data.color : '#222'}">{{error}}</div>
+  <div layout="row" layout-align="left center" *ngFor="let error of data.errors" style="padding-left: 40px;"
+    [ngStyle]="{'color': data.color ? data.color : '#222'}">{{error}}</div>
 </ng-container>
-

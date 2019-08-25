@@ -15,7 +15,10 @@ import {
   CovalentMenuModule,
   CovalentDataTableModule,
   CovalentMessageModule,
+  CovalentBreadcrumbsModule,
+
 } from '@covalent/core';
+import { CovalentHighlightModule } from '@covalent/highlight';
 
 @NgModule({
   declarations: [],
@@ -34,7 +37,9 @@ import {
     CovalentNotificationsModule,
     CovalentMenuModule,
     CovalentDataTableModule,
-    CovalentMessageModule
+    CovalentMessageModule,
+    CovalentHighlightModule,
+    CovalentBreadcrumbsModule,
   ],
   exports: [
     CovalentCommonModule,
@@ -49,7 +54,9 @@ import {
     CovalentNotificationsModule,
     CovalentMenuModule,
     CovalentDataTableModule,
-    CovalentMessageModule
+    CovalentMessageModule,
+    CovalentHighlightModule,
+    CovalentBreadcrumbsModule,
   ]
 })
 export class CovalentModule { }

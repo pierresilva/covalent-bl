@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { APP_INITIALIZER, LOCALE_ID, NgModule } from '@angular/core';
+import { APP_INITIALIZER, LOCALE_ID, NgModule, ModuleWithProviders } from '@angular/core';
 
 // import ngx-translate and the http loader
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -22,10 +22,27 @@ import { JwtService } from './shared/services/jwt.service';
 import { AuthService } from './shared/services/auth.service';
 import { LoadingService } from './shared/services/loading.service';
 import { environment } from '../environments/environment';
-import { SimpleInterceptor } from './shared/bl-packages/auth';
+
+import { BlPackagesModule } from './shared/bl-packages/bl-packages.module';
+import { AuthModule, AuthConfig, SimpleInterceptor } from './shared/bl-packages/auth';
+export function blAuthConfig(): AuthConfig {
+  return Object.assign(new AuthConfig(), {
+    login_url: '/auth',
+    store_key: '_token',
+    token_invalid_redirect: true,
+    token_exp_offset: 10,
+    token_send_key: 'Authorization',
+    token_send_template: 'Bearer ${token}',
+    token_send_place: 'header',
+    allow_anonymous_key: '_allow_anonymous',
+    executeOtherInterceptors: true,
+  });
+}
+
 import { DefaultInterceptor } from './core/default.interceptor';
 
 import { StartupService } from './core/startup.service';
+
 export function StartupServiceFactory(
   startupService: StartupService,
 ): Function {
@@ -65,7 +82,7 @@ const APPINIT_PROVIDES: any = [
     JwtService,
     AuthService,
     LoadingService,
-
+    BlPackagesModule,
     {
       provide: LOCALE_ID,
       useValue: localStorage.getItem(environment.app_prefix + 'lang'),
@@ -81,6 +98,14 @@ const APPINIT_PROVIDES: any = [
   ],
 })
 export class AppModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: AuthModule,
+      providers: [
+        { provide: AuthConfig, useFactory: blAuthConfig },
+      ]
+    };
+  }
 }
 
 // required for AOT compilation

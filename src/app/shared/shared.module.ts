@@ -14,6 +14,8 @@ import { BlDisplayErrorComponent } from './services/display-error/display-error.
 import { TranslateModule } from '@ngx-translate/core';
 import { BlComponentsModule } from './bl-components/bl-components.module';
 import { BlPackagesModule } from './bl-packages/bl-packages.module';
+import { ACLModule } from './bl-packages/acl/acl.module';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { BlPackagesModule } from './bl-packages/bl-packages.module';
     InterfacesModule,
     BlComponentsModule,
     BlPackagesModule,
+    ACLModule.forRoot(),
   ],
   exports: [
     RouterModule,
@@ -46,12 +49,13 @@ import { BlPackagesModule } from './bl-packages/bl-packages.module';
     TranslateModule,
     BlComponentsModule,
     BlPackagesModule,
+    ACLModule,
   ],
   entryComponents: [
     BlDisplayErrorComponent,
   ],
   providers: [
-    /*{
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
       multi: true,
@@ -60,7 +64,7 @@ import { BlPackagesModule } from './bl-packages/bl-packages.module';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true,
-    },*/
+    },
   ],
 })
 export class SharedModule {

@@ -1,4 +1,4 @@
-import {Injectable, ViewChild, ViewContainerRef} from '@angular/core';
+import { Injectable, ViewChild, ViewContainerRef } from '@angular/core';
 import {
   HttpInterceptor,
   HttpRequest,
@@ -11,13 +11,13 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/finally';
-import {Observable} from 'rxjs';
-import {environment} from '../../../environments/environment';
-import {LoadingService} from './loading.service';
-import {empty} from 'rxjs/internal/Observer';
-import {TdDialogService, TdLoadingService} from '@covalent/core';
-import {MatBottomSheet} from '@angular/material';
-import {BlDisplayErrorComponent} from './display-error/display-error.component';
+import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
+import { LoadingService } from './loading.service';
+import { empty } from 'rxjs/internal/Observer';
+import { TdDialogService, TdLoadingService } from '@covalent/core';
+import { MatBottomSheet } from '@angular/material';
+import { BlDisplayErrorComponent } from './display-error/display-error.component';
 
 @Injectable()
 
@@ -57,9 +57,9 @@ export class HttpInterceptorService implements HttpInterceptor {
 
     return next.handle(cloneReq)
       .catch((error: any, caught: any) => {
-        console.log(error);
+        console.error(error);
         let responseErrors: any[] = [];
-        if (error.status >= 400) {
+        if (error.error && error.status >= 400) {
           if (error.error.response) {
             if (error.error.response.errors) {
               const errorKeys: any[] = Object.keys(error.error.response.errors);
@@ -77,14 +77,17 @@ export class HttpInterceptorService implements HttpInterceptor {
           }
         }
 
-        this.bottomSheet.open(BlDisplayErrorComponent, {
-          data: {
-            title: error.error.message,
-            errors: responseErrors,
-            color: 'red',
-            icon: 'error_outline',
-          },
-        });
+        if (environment.production == false && error.error) {
+          this.bottomSheet.open(BlDisplayErrorComponent, {
+            data: {
+              title: error.error.message,
+              errors: responseErrors,
+              color: 'red',
+              icon: 'error_outline',
+            },
+          });
+        }
+
         return Observable.throw(error);
       })
       .finally(() => {
