@@ -324,11 +324,6 @@
   dependencies:
     tslib "^1.9.0"
 
-"@covalent/data@0.7.1":
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/@covalent/data/-/data-0.7.1.tgz#c5105d299784b8adc6fbb2688697714eedd387a8"
-  integrity sha1-xRBdKZeEuK3G+7JohpdxTu3Th6g=
-
 "@covalent/dynamic-forms@^2.0.0":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@covalent/dynamic-forms/-/dynamic-forms-2.1.1.tgz#ec4a2628ee259489b345e47ae5a48654ae300dfb"
