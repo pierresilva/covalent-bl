@@ -1,13 +1,15 @@
-<a *ngIf="authService.userLogged; else unauthorized" mat-icon-button [routerLink]="['/auth/logout']"
-  routerLinkActive="active">
-  <mat-icon matTooltip="Salir" matTooltipPosition="before" matTooltipDelay="500">
-    exit_to_app_outlined
-  </mat-icon>
-</a>
-<ng-template #unauthorized>
-  <a mat-icon-button [routerLink]="['/auth']" routerLinkActive="active">
-    <mat-icon matTooltip="Ingresar" matTooltipPosition="before" matTooltipDelay="500">
-      account_circle_outlined
+<span>
+  <button *ngIf="authService.userLogged; else unauthorized" mat-icon-button [routerLink]="['/auth/logout']"
+    routerLinkActive="active">
+    <mat-icon matTooltip="Salir" matTooltipPosition="before" matTooltipDelay="500">
+      exit_to_app_outlined
     </mat-icon>
-  </a>
-</ng-template>
+  </button>
+  <ng-template #unauthorized>
+    <button mat-icon-button [routerLink]="['/auth']" routerLinkActive="active">
+      <mat-icon matTooltip="Ingresar" matTooltipPosition="before" matTooltipDelay="500">
+        account_circle_outlined
+      </mat-icon>
+    </button>
+  </ng-template>
+</span>

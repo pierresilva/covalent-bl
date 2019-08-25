@@ -38,7 +38,7 @@ export class AdminComponent implements OnInit {
     'name': 'On the fly analytics',
     'owner': 'Jenn',
     'updated_at': '2016-12-09T19:00:31Z',
-  } ];
+  }];
 
   columnOptions: any[] = [{
     name: 'Updated',
@@ -51,7 +51,7 @@ export class AdminComponent implements OnInit {
   headers: any = {};
   pageSize: number = 5;
 
-  constructor (
+  constructor(
     public media: TdMediaService,
   ) { }
 
@@ -61,7 +61,7 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  search(): void {
+  search(event): void {
     // dummy func
   }
 

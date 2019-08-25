@@ -4,7 +4,7 @@ import { ApplicationRef, ComponentFactoryResolver, Injectable, Injector, Templat
 import { BlMessageBaseService } from '../message/bl-message.service';
 
 import { BlNotificationConfig } from './bl-notification-config';
-import { BlNotificationContainerComponent } from "./BlNotificationContainerComponent";
+import { BlNotificationContainerComponent } from "./bl-notification-container.component";
 import { BlNotificationData, BlNotificationDataFilled, BlNotificationDataOptions } from './bl-notification.definitions';
 
 @Injectable({

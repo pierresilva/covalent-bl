@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   useHash: false,
   app_title: 'Angular Baseline',
-  app_url: 'http://lapp-baseline.test/',
+  app_url: 'http://192.168.0.14/lapp-baseline/public/index.php/',
   api_prefix: 'api/',
   app_prefix: 'bl_',
   theme: 'theme-light',
@@ -20,4 +20,5 @@ export const environment = {
       flag: 'gb',
     },
   ],
+  def_lang: 'es',
 };

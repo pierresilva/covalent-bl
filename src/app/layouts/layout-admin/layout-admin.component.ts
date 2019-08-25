@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material';
-import {TdMediaService} from "@covalent/core";
+import { TdMediaService } from "@covalent/core";
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-layout-admin',
@@ -11,11 +12,13 @@ import {TdMediaService} from "@covalent/core";
 export class LayoutAdminComponent implements OnInit {
 
   isLogged: boolean = true;
+  name: any = 'Some';
 
   constructor(
-    private media: TdMediaService,
+    public media: TdMediaService,
     private _iconRegistry: MatIconRegistry,
     private _domSanitizer: DomSanitizer,
+    public authService: AuthService,
   ) {
     this._iconRegistry.addSvgIconInNamespace('assets', 'teradata',
       this._domSanitizer.bypassSecurityTrustResourceUrl('assets/images/teradata.svg'));

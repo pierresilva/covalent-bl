@@ -1,21 +1,15 @@
 <td-layout>
-  <td-navigation-drawer flex
-                        [tdLayoutOpen]="true"
-                        class="user-nav-header-hidden">
+  <td-navigation-drawer flex [tdLayoutOpen]="true" class="user-nav-header-hidden">
     <mat-nav-list *ngIf="isLogged">
       <app-layout-admin-main-menu></app-layout-admin-main-menu>
     </mat-nav-list>
   </td-navigation-drawer>
-  <td-layout-nav [logo]="(media.registerQuery('gt-xs') | async) ? 'assets:covalent' : undefined"
-                 [toolbarTitle]="name"
-                 navigationRoute="/">
+  <td-layout-nav [logo]="(media.registerQuery('gt-xs') | async) ? 'assets:covalent' : undefined" [toolbarTitle]="name"
+    navigationRoute="/">
     <button *ngIf="isLogged" mat-icon-button td-menu-button tdLayoutToggle>
       <mat-icon>menu</mat-icon>
     </button>
-    <div td-toolbar-content
-         layout="row"
-         layout-align="start center"
-         flex>
+    <div td-toolbar-content layout="row" layout-align="start center" flex>
       <div flex></div>
       <!--
       <div mat-stretch-tabs mat-tab-nav-bar class="text-upper main-navigation">
@@ -35,9 +29,11 @@
       -->
       <button mat-button routerLink="/" class="text-upper main-navigation-button-link">
         <span hide-xs>Home</span>
-        <span hide-gt-xs><mat-icon>home</mat-icon></span>
+        <span hide-gt-xs>
+          <mat-icon>home</mat-icon>
+        </span>
       </button>
-      <bl-nav-user-notifications *ngIf="userLogued"></bl-nav-user-notifications>
+      <bl-nav-user-notifications *ngIf="authService.userLogged"></bl-nav-user-notifications>
       <bl-theme-selector></bl-theme-selector>
       <bl-nav-lang-selector></bl-nav-lang-selector>
       <bl-nav-user-menu></bl-nav-user-menu>

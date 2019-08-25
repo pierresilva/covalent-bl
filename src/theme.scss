@@ -310,6 +310,27 @@ $background: map-get($theme, background);
     background-color: map-get($td-emphasis2, background-dark) !important;
     color: mat-color($foreground, text);
   }
+
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #b0b6b9 !important;
+  }
+
+  .mat-form-field-label {
+    color: #b0b6b9 !important;
+  }
+
+  .mat-form-field-appearance-outline.mat-form-field-invalid {
+    color: #ef5350 !important;
+  }
+
+  .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: #ef5350 !important;
+  }
+
+  /* Font color */
+  .mat-input-element {
+    color: #b0b6b9 !important;
+  }
 }
 
 

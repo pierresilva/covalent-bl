@@ -5,11 +5,11 @@ import { BlNotificationConfig, BL_NOTIFICATION_CONFIG, BL_NOTIFICATION_DEFAULT_C
 import { BlNotificationDataFilled } from './bl-notification.definitions';
 
 @Component({
-  changeDetection    : ChangeDetectionStrategy.OnPush,
-  encapsulation      : ViewEncapsulation.None,
-  selector           : 'bl-notification-container',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
+  selector: 'bl-notification-container',
   preserveWhitespaces: false,
-  templateUrl        : './bl-notification-container.component.html',
+  templateUrl: './bl-notification-container.component.html',
 })
 
 export class BlNotificationContainerComponent extends BlMessageContainerComponent {

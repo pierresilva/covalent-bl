@@ -9,6 +9,8 @@ import { name, patterns, layouts, routes, baseURL } from '../../../../../assets/
 })
 export class HomeHomeComponent implements OnInit {
 
+  layouts: any[] = [];
+
   constructor(
     public media: TdMediaService,
   ) {

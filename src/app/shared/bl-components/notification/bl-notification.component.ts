@@ -3,14 +3,14 @@ import { ChangeDetectorRef, Component, Input, ViewEncapsulation } from '@angular
 
 import { BlMessageComponent } from '../message/bl-message.component';
 
-import { BlNotificationContainerComponent } from "./BlNotificationContainerComponent";
+import { BlNotificationContainerComponent } from "./bl-notification-container.component";
 import { BlNotificationDataFilled } from './bl-notification.definitions';
 
 @Component({
-  encapsulation      : ViewEncapsulation.None,
-  selector           : 'bl-notification',
+  encapsulation: ViewEncapsulation.None,
+  selector: 'bl-notification',
   preserveWhitespaces: false,
-  animations         : [
+  animations: [
     trigger('enterLeave', [
       state('enterRight', style({ opacity: 1, transform: 'translateX(0)' })),
       transition('* => enterRight', [
@@ -23,21 +23,21 @@ import { BlNotificationDataFilled } from './bl-notification.definitions';
         animate('100ms linear')
       ]),
       state('leave', style({
-        opacity        : 0,
-        transform      : 'scaleY(0.8)',
+        opacity: 0,
+        transform: 'scaleY(0.8)',
         transformOrigin: '0% 0%'
       })),
       transition('* => leave', [
         style({
-          opacity        : 1,
-          transform      : 'scaleY(1)',
+          opacity: 1,
+          transform: 'scaleY(1)',
           transformOrigin: '0% 0%'
         }),
         animate('100ms linear')
       ])
     ])
   ],
-  templateUrl        : './bl-notification.component.html'
+  templateUrl: './bl-notification.component.html'
 })
 export class BlNotificationComponent extends BlMessageComponent {
   @Input() blMessage: BlNotificationDataFilled;
