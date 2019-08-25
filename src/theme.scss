@@ -337,3 +337,12 @@ $background: map-get($theme, background);
 .border-radius {
   border-radius: 4px;
 }
+
+input[type="search"] {
+  padding-top: 8px;
+}
+
+.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
+.mat-form-field-empty.mat-form-field-label {
+  padding-top: 8px;
+}

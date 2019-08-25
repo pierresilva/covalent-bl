@@ -18,6 +18,9 @@ import {
   CovalentBreadcrumbsModule,
 
 } from '@covalent/core';
+import { CovalentBaseEchartsModule } from '@covalent/echarts/base';
+import { CovalentBarEchartsModule } from '@covalent/echarts/bar';
+import { CovalentTooltipEchartsModule } from '@covalent/echarts/tooltip';
 import { CovalentHighlightModule } from '@covalent/highlight';
 
 @NgModule({
@@ -40,6 +43,9 @@ import { CovalentHighlightModule } from '@covalent/highlight';
     CovalentMessageModule,
     CovalentHighlightModule,
     CovalentBreadcrumbsModule,
+    CovalentBaseEchartsModule,
+    CovalentBarEchartsModule,
+    CovalentTooltipEchartsModule,
   ],
   exports: [
     CovalentCommonModule,
@@ -57,6 +63,9 @@ import { CovalentHighlightModule } from '@covalent/highlight';
     CovalentMessageModule,
     CovalentHighlightModule,
     CovalentBreadcrumbsModule,
+    CovalentBaseEchartsModule,
+    CovalentBarEchartsModule,
+    CovalentTooltipEchartsModule,
   ]
 })
 export class CovalentModule { }

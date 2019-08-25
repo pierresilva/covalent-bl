@@ -332,6 +332,13 @@
     "@covalent/core" "^2.1.1"
     tslib "^1.9.0"
 
+"@covalent/echarts@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@covalent/echarts/-/echarts-2.1.0.tgz#ee054b3b021cf61d4e45685e70da7a53d853c759"
+  integrity sha512-36Ek/7roF/M9Q5fCKP3wVUW+14e2oCHeSIjzpkHu7wh+TWoKxkXosPqxgpC49VEpa4M8vBqm+kNgid+GzMSC7g==
+  dependencies:
+    tslib "^1.9.0"
+
 "@covalent/highlight@^2.0.0":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@covalent/highlight/-/highlight-2.1.1.tgz#0c29fce8211d84a86f37620d89161c8965375d9f"
@@ -2844,6 +2851,13 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
+
+echarts@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/echarts/-/echarts-4.2.1.tgz#9a8ea3b03354f86f824d97625c334cf16965ef03"
+  integrity sha512-pw4xScRPsLegD/cqEcoXRKeA2SD4+s+Kyo0Na166NamOWhzNl2yI5RZ2rE97tBlAopNmhyMeBVpAeD5qb+ee1A==
+  dependencies:
+    zrender "4.0.7"
 
 ee-first@1.1.1:
   version "1.1.1"
@@ -8658,3 +8672,8 @@ zone.js@^0.8.26:
   version "0.8.29"
   resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.29.tgz#8dce92aa0dd553b50bc5bfbb90af9986ad845a12"
   integrity sha512-mla2acNCMkWXBD+c+yeUrBUrzOxYMNFdQ6FGfigGGtEVBPJx07BQeJekjt9DmH1FtZek4E9rE1eRR9qQpxACOQ==
+
+zrender@4.0.7:
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/zrender/-/zrender-4.0.7.tgz#15ae960822f5efed410995d37e5107fe3de10e6d"
+  integrity sha512-TNloHe0ums6zxbHfnaCryM61J4IWDajZwNq6dHk9vfWhhysO/OeFvvR0drBs/nbXha2YxSzfQj2FiCd6RVBe+Q==

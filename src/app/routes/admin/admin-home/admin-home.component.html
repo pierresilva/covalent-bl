@@ -1,0 +1,41 @@
+<div layout="row" class="pad" layout-wrap>
+  <div flex-gt-sm="50" flex="100">
+    <mat-card>
+      <mat-card-title>Standard Card</mat-card-title>
+      <mat-card-subtitle>Subtitle</mat-card-subtitle>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <td-chart [style.height.px]="300" [config]="config">
+        </td-chart>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <mat-card-actions>
+        <button mat-button color="accent" class="text-upper">Action</button>
+        <button mat-button class="text-upper">Cancel</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div flex-gt-sm="50" flex="100">
+    <mat-card>
+      <mat-card-title>
+        <div layout="row" layout-align="start center">
+          <span flex>Card title</span>
+          <span>
+            <button mat-icon-button matTooltip="Card settings" [mat-menu-trigger-for]="settings4">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu xPosition="before" #settings4="matMenu">
+              <button mat-menu-item> Settings </button>
+              <mat-divider></mat-divider>
+              <button mat-menu-item> Remove </button>
+            </mat-menu>
+          </span>
+        </div>
+      </mat-card-title>
+      <mat-divider></mat-divider>
+      <td-data-table [data]="data" [style.height.px]="290"></td-data-table>
+    </mat-card>
+  </div>
+
+</div>

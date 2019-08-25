@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
     private _iconRegistry: MatIconRegistry,
     private _domSanitizer: DomSanitizer,
     private activatedRoute: ActivatedRoute,
-    private titleSrv: TitleService,
+    public titleSrv: TitleService,
     private api: ApiService,
     private theme: ThemeService,
     private translateService: TranslateService,

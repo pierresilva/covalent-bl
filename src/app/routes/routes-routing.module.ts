@@ -32,7 +32,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: LayoutAdminComponent,
+    component: LayoutCustomComponent,
     canActivateChild: [JWTGuard],
     children: [
       {

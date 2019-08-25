@@ -3,12 +3,22 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminComponent } from './admin.component';
 import { JWTGuard } from '../../shared/bl-packages/auth';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 const routes: Routes = [
   {
     path: '',
     component: AdminComponent,
-    canActivate: [JWTGuard],
+    canActivateChild: [JWTGuard],
+    children: [
+      {
+        path: '',
+        component: AdminHomeComponent,
+        data: {
+          title: 'Administration',
+        },
+      }
+    ],
   },
 ];
 
