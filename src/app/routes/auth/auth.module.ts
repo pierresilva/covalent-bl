@@ -7,6 +7,8 @@ import { AuthRegisterComponent } from './auth-register/auth-register.component';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
 import { AuthComponent } from './auth.component';
 import { LogoutComponent } from './logout/logout.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { ActivateComponent } from './activate/activate.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { LogoutComponent } from './logout/logout.component';
     AuthLoginComponent,
     AuthComponent,
     LogoutComponent,
+    ConfirmationComponent,
+    ActivateComponent,
   ],
   imports: [
     CommonModule,

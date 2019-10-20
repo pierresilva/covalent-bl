@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   useHash: false,
   app_title: 'Angular Baseline',
-  app_url: 'http://lapp-baseline.localhost/',
+  app_url: 'http://lapp-baseline.test/',
   api_prefix: 'api/',
   app_prefix: 'bl_',
   theme: 'theme-light',

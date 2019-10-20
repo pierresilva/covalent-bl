@@ -346,3 +346,8 @@ input[type="search"] {
 .mat-form-field-empty.mat-form-field-label {
   padding-top: 8px;
 }
+
+.mat-form-field-appearance-outline .mat-form-field-label {
+  top: 1.4em;
+  margin-top: -0.25em;
+}

@@ -5,6 +5,7 @@ import { AuthLoginComponent } from './auth-login/auth-login.component';
 import { AuthRegisterComponent } from './auth-register/auth-register.component';
 import { AuthComponent } from './auth.component';
 import { LogoutComponent } from './logout/logout.component';
+import { ActivateComponent } from './activate/activate.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,13 @@ const routes: Routes = [
         component: LogoutComponent,
         data: {
           title: 'Salir',
+        },
+      },
+      {
+        path: 'activate/:code',
+        component: ActivateComponent,
+        data: {
+          title: 'Activar cuenta',
         },
       },
     ],
