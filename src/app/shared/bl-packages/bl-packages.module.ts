@@ -35,6 +35,9 @@ export * from './bl.packages.config';
     CacheModule,
     BlLocaleModule,
   ],
+  exports: [
+    HTMLPipe
+  ]
 })
 export class BlPackagesModule {
   /**

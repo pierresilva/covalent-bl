@@ -17,7 +17,7 @@ export class LayoutDefaultComponent implements OnInit, AfterViewInit {
 
   userLogued: boolean = false;
 
-  @ViewChild('dialogContent') template: TemplateRef<any>;
+  @ViewChild('dialogContent', {read: true, static: false}) template: TemplateRef<any>;
 
   items: any[] = [
     {

@@ -29,10 +29,12 @@
           [disabled]="loginForm.invalid">{{'app.auth.login' | translate}}
         </button>
         <div layout="row" style="padding-top: 20px;">
-          <a href="javascript:;" routerLink="/" mat-button layout-align="left">{{'app.home' | translate}}</a>
           &nbsp;&nbsp;
           <a href="javascript:;" routerLink="/auth/register" mat-button
-            layout-align="right">{{'app.auth.register' | translate}}</a>
+            layout-align="right">{{'auth.register.button' | translate}}</a>
+
+          <a href="javascript:;" routerLink="/auth/password-reset" mat-button
+             layout-align="right">{{'auth.password_reset.button' | translate}}</a>
         </div>
       </div>
       <!-- end pattern -->

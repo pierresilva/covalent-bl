@@ -22,7 +22,7 @@ import { BlTimelineMode } from './bl-timeline.component';
   templateUrl        : './bl-timeline-item.component.html'
 })
 export class BlTimelineItemComponent implements OnInit, OnChanges {
-  @ViewChild('liTemplate') liTemplate: ElementRef;
+  @ViewChild('liTemplate', {read: true, static: false}) liTemplate: ElementRef;
   @Input() blColor: string = 'blue';
   @Input() blDot: string | TemplateRef<void>;
 

@@ -7,8 +7,9 @@ import { AuthRegisterComponent } from './auth-register/auth-register.component';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
 import { AuthComponent } from './auth.component';
 import { LogoutComponent } from './logout/logout.component';
-import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { ActivateComponent } from './activate/activate.component';
+import { AuthResetPasswordComponent } from './auth-reset-password/auth-reset-password.component';
+import { AuthConfirmPasswordComponent } from './auth-confirm-password/auth-confirm-password.component';
 
 @NgModule({
   declarations: [
@@ -16,8 +17,9 @@ import { ActivateComponent } from './activate/activate.component';
     AuthLoginComponent,
     AuthComponent,
     LogoutComponent,
-    ConfirmationComponent,
     ActivateComponent,
+    AuthResetPasswordComponent,
+    AuthConfirmPasswordComponent,
   ],
   imports: [
     CommonModule,

@@ -59,7 +59,7 @@ export class BlBadgeComponent implements OnInit, AfterViewInit {
   countArray = [];
   // tslint:disable-next-line:typedef
   countSingleArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  @ViewChild('contentElement') contentElement: ElementRef;
+  @ViewChild('contentElement', {read: true, static: false}) contentElement: ElementRef;
   // tslint:disable-next-line:typedef
   @Input() @InputBoolean() blShowZero = false;
   // tslint:disable-next-line:typedef

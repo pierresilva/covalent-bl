@@ -11,7 +11,7 @@ import { CacheService } from '../../shared/bl-packages/cache';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-landing',
+  selector: 'bl-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss'],
   animations: [
@@ -20,7 +20,7 @@ import { map } from 'rxjs/operators';
 })
 export class LandingComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('manageList') manageList: TdLayoutManageListComponent;
+  @ViewChild('manageList', {read: true, static: false}) manageList: TdLayoutManageListComponent;
 
   miniNav: boolean = false;
 

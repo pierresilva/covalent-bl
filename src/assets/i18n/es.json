@@ -8,6 +8,7 @@
   "app.theme.dark": "Tema oscuro",
   "app.auth.login": "Ingresar",
   "app.auth.register": "Registrarse",
+  "app.auth.activate_account": "Activar cuenta",
   "forms.field.label.name": "Nombre",
   "forms.field.placeholder.name": "Ingrese su nombre",
   "forms.field.label.email": "Correo electrónico",

@@ -5,15 +5,33 @@
       <div layout="column" layout-align="center center" class="tc-grey-500 mat-typography pad-lg">
         <img [src]="'assets/images/logo.svg'" style="max-width: 200px;">
         <!-- <mat-icon matListAvatar class="text-super push-bottom">perm_identity</mat-icon> -->
-        <h2 *ngIf="!activationError" style="text-transform: uppercase;">Activando cuenta...</h2>
-        <form class="example-form" *ngIf="activationError">
-          <mat-form-field appearance="outline">
-            <mat-label>Outline form field</mat-label>
-            <input matInput placeholder="Placeholder" [formControl]="emailFormControl">
-            <mat-icon matSuffix>email</mat-icon>
-            <mat-hint>Hint</mat-hint>
+        <h2 style="text-transform: uppercase; padding-top: 14px;">{{'auth.activate_account' | translate}}</h2>
+
+        <form class="example-form"
+              [formGroup]="activationForm"
+              *ngIf="activationError"
+              (ngSubmit)="onSubmit()"
+              novalidate
+              style="text-align: center; width: 100%;">
+          <p style="text-align: justify;" [innerHTML]="translate.instant('auth.activate_account.message.error')"></p>
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>{{'auth.form.email.label' | translate}}</mat-label>
+            <input matInput
+                   name="email"
+                   formControlName="email"
+                   id="email"
+                   required
+                   type="email"
+                   [placeholder]="translate.instant('auth.form.email.placeholder')">
+            <mat-icon matSuffix>mail_outline</mat-icon>
+            <mat-error *ngIf="activationForm.get('email').invalid">{{getErrorMessage(activationForm.get('email'))}}</mat-error>
+            <!-- <mat-hint>Hint</mat-hint>-->
           </mat-form-field>
-          <button [disabled]="" mat-button>Resend activation code!</button>
+          <button type="submit"
+                  color="accent"
+                  class="text-upper"
+                  [disabled]="!activationForm.valid"
+                  mat-button>{{'auth.activate_account.resend_activation_code' | translate}}</button>
         </form>
       </div>
       <!-- end pattern -->

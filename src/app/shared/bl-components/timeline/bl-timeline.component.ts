@@ -31,9 +31,9 @@ export type BlTimelineMode = 'left' | 'alternate' | 'right';
   templateUrl        : './bl-timeline.component.html'
 })
 export class BlTimelineComponent implements AfterContentInit, OnChanges, OnDestroy {
-  @ViewChild('timeline') timeline: ElementRef<HTMLElement>;
+  @ViewChild('timeline', {read: true, static: false}) timeline: ElementRef<HTMLElement>;
   @ContentChildren(BlTimelineItemComponent) listOfTimeLine: QueryList<BlTimelineItemComponent>;
-  @ContentChild('pending') _pendingContent: TemplateRef<void>;
+  @ContentChild('pending', {read: true, static: false}) _pendingContent: TemplateRef<void>;
 
   @Input() blMode: BlTimelineMode;
   @Input() blPending: string | boolean | TemplateRef<void>;
