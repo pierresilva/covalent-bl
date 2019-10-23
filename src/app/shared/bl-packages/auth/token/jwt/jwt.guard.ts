@@ -32,7 +32,7 @@ export class JWTGuard implements CanActivate, CanActivateChild, CanLoad {
     if (!res) {
       this.injector.get(BlNotificationService).warning(
         'No esta autenticado!',
-        ''
+        '',
       );
       // ToLogin(this.cog, this.injector, this.url);
     }

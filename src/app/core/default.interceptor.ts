@@ -82,15 +82,15 @@ export class DefaultInterceptor implements HttpInterceptor {
   private checkStatus(ev: any): void {
 
     if (ev.status >= 200 && ev.status < 300) {
-      // console.info(ev.body);
-      if (ev.body.message) {
-        this.injector.get(BlNotificationService).success(
-          ev.body.message,
-          // tslint:disable-next-line: no-null-keyword
-          null,
-        );
+      if (ev.body) {
+        if (ev.body.message) {
+          this.injector.get(BlNotificationService).success(
+            ev.body.message,
+            // tslint:disable-next-line: no-null-keyword
+            null,
+          );
+        }
       }
-
       return;
     }
 

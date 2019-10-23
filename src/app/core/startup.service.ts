@@ -72,6 +72,7 @@ export class StartupService {
         .subscribe(
           // tslint:disable-next-line: typedef
           ([settingsData, transData]) => {
+            console.log('server defaults');
             // setting language data
             this.translate.setDefaultLang(this.defLang);
             this.translate.setTranslation(this.defLang, transData.translations);

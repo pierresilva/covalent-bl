@@ -45,9 +45,9 @@ export class ACLGuard implements CanActivate, CanActivateChild, CanLoad {
         guard :
         of(typeof guard !== 'undefined' && guard !== null ? (guard as ACLCanType) : null)
     ).pipe(
-      map(v => this.srv.can(v)),
-      tap(v => {
-        if (v) return;
+      map((v: any) => this.srv.can(v)),
+      tap((v: any) => {
+        if (v) { return; }
         this.router.navigateByUrl(this.options.guard_url);
       }),
     );

@@ -1,7 +1,7 @@
 <mat-nav-list class="main-nav-list">
-  <a mat-list-item>
+  <a mat-list-item routerLink="/admin" *aclIf="{ ability: ['admin.default'] }">
     <mat-icon matListIcon>dashboard</mat-icon>
-    Overview
+    Admin
   </a>
   <h3 matSubheader>Management</h3>
   <ng-template let-item let-last="last" ngFor [ngForOf]="mgmtmenu">

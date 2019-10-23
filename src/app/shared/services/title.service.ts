@@ -16,7 +16,7 @@ export class TitleService {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private titleService: Title,
+    public titleService: Title,
   ) {
   }
 

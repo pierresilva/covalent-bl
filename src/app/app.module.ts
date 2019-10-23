@@ -23,7 +23,7 @@ import { AuthService } from './shared/services/auth.service';
 import { LoadingService } from './shared/services/loading.service';
 import { environment } from '../environments/environment';
 
-import { BlPackagesModule } from './shared/bl-packages/bl-packages.module';
+import { ACLModule } from './shared/bl-packages/bl-packages.module';
 import { AuthModule, AuthConfig, SimpleInterceptor } from './shared/bl-packages/auth';
 export function blAuthConfig(): AuthConfig {
   return Object.assign(new AuthConfig(), {
@@ -75,6 +75,7 @@ const APPINIT_PROVIDES: any = [
         deps: [HttpClient],
       },
     }),
+    ACLModule.forRoot(),
   ],
   providers: [
     TitleService,
@@ -82,7 +83,6 @@ const APPINIT_PROVIDES: any = [
     JwtService,
     AuthService,
     LoadingService,
-    BlPackagesModule,
     {
       provide: LOCALE_ID,
       useValue: localStorage.getItem(environment.app_prefix + 'lang'),
@@ -103,7 +103,7 @@ export class AppModule {
       ngModule: AuthModule,
       providers: [
         { provide: AuthConfig, useFactory: blAuthConfig },
-      ]
+      ],
     };
   }
 }

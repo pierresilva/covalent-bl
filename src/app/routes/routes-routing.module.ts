@@ -41,6 +41,22 @@ const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'developer',
+    component: LayoutCustomComponent,
+    canActivateChild: [JWTGuard],
+    children: [
+      {
+        path: '',
+        loadChildren: './developer/developer.module#DeveloperModule',
+      },
+    ],
+  },
+  // redirect to home when route does not exists (must be last route)
+  {
+    path: '**',
+    redirectTo: '',
+  },
 ];
 
 @NgModule({

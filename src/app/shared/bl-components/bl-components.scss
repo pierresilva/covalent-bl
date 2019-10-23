@@ -3,3 +3,8 @@
 @import "./message/style/index";
 @import "./notification/style/index";
 @import "./timeline/style/index";
+
+.acl__hide {
+  display: none !important;
+  visibility: hidden !important;
+}

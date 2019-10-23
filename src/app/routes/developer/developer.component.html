@@ -1,0 +1,31 @@
+<td-layout-manage-list #manageList
+                       [opened]="media.registerQuery('gt-sm') | async"
+                       [mode]="(media.registerQuery('gt-sm') | async) ? 'side' :  'over'"
+                       [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '257px' : '100%'">
+  <mat-toolbar td-sidenav-content>
+    <button mat-icon-button
+            tdLayoutManageListClose
+            [hideWhenOpened]="false">
+      <mat-icon>close</mat-icon>
+    </button>
+    <span class="push-left">Desarrollo</span>
+  </mat-toolbar>
+  <mat-nav-list td-sidenav-content
+                [tdLayoutManageListClose]="!media.query('gt-sm')">
+    <!-- menu here -->
+    <app-developer-menu></app-developer-menu>
+  </mat-nav-list>
+  <mat-toolbar>
+    <div layout="row" layout-align="start center" flex>
+      <button mat-icon-button
+              tdLayoutManageListOpen
+              [hideWhenOpened]="true">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>{{titleService.titleService.getTitle()}}</span>
+      <span flex></span>
+      <!-- <button routerLink="/form" mat-raised-button color="primary" class="text-upper">Create</button> -->
+    </div>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</td-layout-manage-list>

@@ -14,6 +14,7 @@ import { BlAvatarModule } from '../bl-components/avatar';
 import { BlBadgeModule } from '../bl-components/badge';
 import { MenuComponent } from './menu/menu.component';
 import { AuthButtonComponent } from './auth-button/auth-button.component';
+import { ACLModule } from '../bl-packages/acl';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AuthButtonComponent } from './auth-button/auth-button.component';
     MaterialModule,
     BlAvatarModule,
     BlBadgeModule,
+    ACLModule,
   ],
   exports: [
     NavUserNotificationsComponent,
