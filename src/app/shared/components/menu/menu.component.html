@@ -3,6 +3,10 @@
     <mat-icon matListIcon>dashboard</mat-icon>
     Admin
   </a>
+  <a mat-list-item routerLink="/developer" *aclIf="{ ability: ['admin.default'] }">
+    <mat-icon matListIcon>developer_mode</mat-icon>
+    {{'module.developer.info.name' | translate}}
+  </a>
   <h3 matSubheader>Management</h3>
   <ng-template let-item let-last="last" ngFor [ngForOf]="mgmtmenu">
     <a mat-list-item>

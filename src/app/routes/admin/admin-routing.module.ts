@@ -15,7 +15,7 @@ const routes: Routes = [
         path: '',
         component: AdminHomeComponent,
         data: {
-          title: 'Administration',
+          title: 'app.administration.title',
         },
       },
     ],

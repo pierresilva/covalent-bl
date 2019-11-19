@@ -3,6 +3,7 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
+import { TranslateService } from '@ngx-translate/core';
 
 const APP_TITLE: string = environment.app_title;
 const SEPARATOR: string = ':';
@@ -16,6 +17,7 @@ export class TitleService {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    public translate: TranslateService,
     public titleService: Title,
   ) {
   }
@@ -58,6 +60,6 @@ export class TitleService {
           }
         }),
       )
-      .subscribe((pathString: string) => this.titleService.setTitle(`${APP_TITLE} ${pathString ? SEPARATOR : ''} ${pathString}`));
+      .subscribe((pathString: string) => this.titleService.setTitle(`${APP_TITLE} ${pathString ? SEPARATOR : ''} ${this.translate.instant(pathString)}`));
   }
 }

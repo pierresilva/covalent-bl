@@ -12,7 +12,7 @@ const routes: Routes = [
         path: '',
         component: DeveloperHomeComponent,
         data: {
-          title: 'Desarrollo',
+          title: 'module.developer.info.name',
         },
       },
     ],
