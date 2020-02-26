@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
-import { BehaviorSubject } from "rxjs";
-import { LocalStorageService } from "./local-storage.service";
+import { BehaviorSubject } from 'rxjs';
+import { LocalStorageService } from './local-storage.service';
 import { BLA_SERVICE_TOKEN, ITokenService, JWTTokenModel } from '../bl-packages/auth';
 
 @Injectable({

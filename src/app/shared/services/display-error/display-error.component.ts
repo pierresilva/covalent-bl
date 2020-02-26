@@ -12,7 +12,8 @@ export class BlDisplayErrorComponent implements OnInit {
   constructor(
     private bottomSheetRef: MatBottomSheetRef<BlDisplayErrorComponent>,
     @Inject(MAT_BOTTOM_SHEET_DATA) public data: any,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
   }

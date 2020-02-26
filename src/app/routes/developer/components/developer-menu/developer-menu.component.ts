@@ -3,7 +3,7 @@ import { TdMediaService } from '@covalent/core';
 import { TitleService } from '../../../../shared/services/title.service';
 
 @Component({
-  selector: 'app-developer-menu',
+  selector: 'bl-developer-menu',
   templateUrl: './developer-menu.component.html',
   styleUrls: ['./developer-menu.component.scss']
 })

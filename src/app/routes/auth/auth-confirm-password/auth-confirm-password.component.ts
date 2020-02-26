@@ -37,7 +37,7 @@ export class AuthConfirmPasswordComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildForm();
-    this.http.get(environment.app_url + environment.api_prefix + 'auth/password/find/' + this.route.snapshot.paramMap.get('code') + '?_allow_anonymous=true')
+    this.http.get(environment.api_url + 'auth/password/find/' + this.route.snapshot.paramMap.get('code') + '?_allow_anonymous=true')
       .subscribe(
         (res: any) => {
           console.log(res);
@@ -50,13 +50,16 @@ export class AuthConfirmPasswordComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.http.post(environment.app_url + environment.api_prefix + 'auth/password/reset?_allow_anonymous=true', this.confirmPasswordForm.value)
+    this._loadingService.register('isLoading');
+    this.http.post(environment.api_url + 'auth/password/reset?_allow_anonymous=true', this.confirmPasswordForm.value)
       .subscribe(
         (res: any) => {
+          this._loadingService.resolve('isLoading');
           this.router.navigateByUrl('/auth');
         },
         (err: any) => {
           console.log(err);
+          this._loadingService.resolve('isLoading');
         },
       );
   }

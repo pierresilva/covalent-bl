@@ -6,6 +6,9 @@ const routes: Routes = [
   {
     path: '',
     component: HomeHomeComponent,
+    data: {
+      title: 'app.home',
+    },
   },
 ];
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 
 /**
@@ -9,5 +9,8 @@ import { Injectable } from '@angular/core';
  */
 export class JwtService {
 
-  constructor() { }
+  // tslint:disable-next-line:no-empty
+  constructor() {
+
+  }
 }

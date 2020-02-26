@@ -1,10 +1,10 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ACLModule } from "./acl";
-import { AuthModule } from "./auth";
-import { CacheModule } from "./cache";
-import { BlLocaleModule } from "./locale";
-import { CNCurrencyPipe, DatePipe, KeysPipe, HTMLPipe, URLPipe } from './pipes';
+import { ACLModule } from './acl';
+import { AuthModule } from './auth';
+import { CacheModule } from './cache';
+import { BlLocaleModule } from './locale';
+import { CNCurrencyPipe, COCurrencyPipe, DatePipe, KeysPipe, HTMLPipe, URLPipe } from './pipes';
 import { I18nPipe } from './i18n/i18n.pipe';
 
 export * from './acl';
@@ -22,6 +22,7 @@ export * from './bl.packages.config';
 @NgModule({
   declarations: [
     CNCurrencyPipe,
+    COCurrencyPipe,
     DatePipe,
     KeysPipe,
     HTMLPipe,
@@ -36,8 +37,13 @@ export * from './bl.packages.config';
     BlLocaleModule,
   ],
   exports: [
-    HTMLPipe
-  ]
+    COCurrencyPipe,
+    DatePipe,
+    KeysPipe,
+    HTMLPipe,
+    URLPipe,
+    I18nPipe,
+  ],
 })
 export class BlPackagesModule {
   /**

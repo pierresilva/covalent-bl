@@ -14,7 +14,7 @@ import { environment } from '../../../../environments/environment';
 @Component({
   selector: 'bl-auth-reset-password',
   templateUrl: './auth-reset-password.component.html',
-  styleUrls: ['./auth-reset-password.component.scss']
+  styleUrls: ['./auth-reset-password.component.scss'],
 })
 export class AuthResetPasswordComponent implements OnInit {
 
@@ -39,12 +39,15 @@ export class AuthResetPasswordComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.http.post(environment.app_url + environment.api_prefix + 'auth/password/create?_allow_anonymous=true', this.resetPasswordForm.value)
+    this._loadingService.register('isLoading');
+    this.http.post(environment.api_url + 'auth/password/create?_allow_anonymous=true', this.resetPasswordForm.value)
       .subscribe(
         (res: any) => {
+          this._loadingService.resolve('isLoading');
           this.router.navigateByUrl('/auth');
         },
         (err: any) => {
+          this._loadingService.resolve('isLoading');
           console.log(err);
         },
       );

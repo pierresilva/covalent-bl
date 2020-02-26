@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { TdMediaService } from "@covalent/core";
+import { TdMediaService } from '@covalent/core';
 
 @Component({
-  selector: 'app-layout-custom',
+  selector: 'bl-layout-custom',
   templateUrl: './layout-custom.component.html',
-  styleUrls: ['./layout-custom.component.scss']
+  styleUrls: ['./layout-custom.component.scss'],
 })
 export class LayoutCustomComponent implements OnInit {
 
@@ -12,7 +12,7 @@ export class LayoutCustomComponent implements OnInit {
     private media: TdMediaService,
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     console.log('LayoutCustom loaded...');
   }
 

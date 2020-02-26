@@ -39,7 +39,7 @@ export class AuthRegisterComponent implements OnInit {
     public cache: CacheService,
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.buildForm();
   }
 
@@ -80,6 +80,7 @@ export class AuthRegisterComponent implements OnInit {
           this.router.navigateByUrl(url);
         });*/
         this._loadingService.resolve('isLoading');
+        this.router.navigateByUrl('/auth');
       }, (err: any) => {
         console.error(err);
         this._loadingService.resolve('isLoading');

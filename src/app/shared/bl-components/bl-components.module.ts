@@ -1,10 +1,10 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
-import { BlAvatarModule } from './avatar/bl-avatar.module';
-import { BlBadgeModule } from './badge/bl-badge.module';
-import { BlMessageModule } from './message/bl-message.module';
-import { BlNotificationModule } from './notification/bl-notification.module';
-import { BlTimelineModule } from './timeline/bl-timeline.module';
+import { BlAvatarModule } from './avatar';
+import { BlBadgeModule } from './badge';
+import { BlMessageModule } from './message';
+import { BlNotificationModule } from './notification';
+import { BlTimelineModule } from './timeline';
 
 export * from './avatar';
 export * from './badge';

@@ -2,13 +2,14 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
+export const environment: any = {
   production: false,
   useHash: false,
   app_title: 'Angular Baseline',
   app_url: 'http://lapp-baseline.test/',
   api_prefix: 'api/',
   app_prefix: 'bl_',
+  api_url: 'http://lapp-baseline.test/api/',
   theme: 'theme-light',
   langs: [
     {

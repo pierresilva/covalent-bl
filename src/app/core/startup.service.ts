@@ -91,7 +91,7 @@ export class StartupService {
             this.titleService.default = '';
             this.titleService.suffix = res.app.name;
             if (this.cacheService.has(environment.app_prefix + 'user')) {
-              const user = JSON.parse(this.cacheService.getNone(environment.app_prefix + 'user'));
+              const user: any = JSON.parse(this.cacheService.getNone(environment.app_prefix + 'user'));
               this.aclService.attachRole(user.role);
               this.aclService.attachAbility(user.ability);
             }

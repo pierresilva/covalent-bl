@@ -14,7 +14,9 @@ export class LocalStorageService {
    * Prefijo para los items de localStorage
    */
   private prefix: string = environment.app_prefix;
-  constructor() { }
+
+  constructor() {
+  }
 
   /**
    * Obtener un item de localStorage

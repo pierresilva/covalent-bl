@@ -16,9 +16,9 @@ import { BlComponentsModule } from './bl-components/bl-components.module';
 import { BlPackagesModule } from './bl-packages/bl-packages.module';
 
 @NgModule({
-  declarations: [
-    BlDisplayErrorComponent,
-  ],
+    declarations: [
+        BlDisplayErrorComponent,
+    ],
   imports: [
     CommonModule,
     RouterModule,
@@ -32,21 +32,21 @@ import { BlPackagesModule } from './bl-packages/bl-packages.module';
     BlComponentsModule,
     BlPackagesModule,
   ],
-  exports: [
-    RouterModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MaterialModule,
-    CovalentModule,
-    ComponentsModule,
-    DirectivesModule,
-    InterfacesModule,
-    BlDisplayErrorComponent,
-    TranslateModule,
-    BlComponentsModule,
-    BlPackagesModule,
-  ],
+    exports: [
+        RouterModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MaterialModule,
+        CovalentModule,
+        ComponentsModule,
+        DirectivesModule,
+        InterfacesModule,
+        BlDisplayErrorComponent,
+        TranslateModule,
+        BlComponentsModule,
+        BlPackagesModule,
+    ],
   entryComponents: [
     BlDisplayErrorComponent,
   ],

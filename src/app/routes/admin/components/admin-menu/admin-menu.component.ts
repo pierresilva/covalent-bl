@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'app-admin-menu',
   templateUrl: './admin-menu.component.html',
-  styleUrls: ['./admin-menu.component.scss']
+  styleUrls: ['./admin-menu.component.scss'],
 })
 export class AdminMenuComponent implements OnInit {
 
   navmenu: Object[] = [
     {
       icon: 'looks_one',
+      // tslint:disable-next-line:no-null-keyword
       route: null,
       title: 'First item',
       description: 'Item description',
@@ -26,7 +28,7 @@ export class AdminMenuComponent implements OnInit {
           title: 'First item',
           description: 'Item description',
         },
-      ]
+      ],
     },
     {
       icon: 'looks_two',
@@ -58,8 +60,10 @@ export class AdminMenuComponent implements OnInit {
     },
   ];
 
+  // tslint:disable
   constructor() { }
 
+  // tslint:disable
   ngOnInit() {
   }
 

@@ -63,10 +63,11 @@ export class HttpInterceptorService implements HttpInterceptor {
           if (error.error.response) {
             if (error.error.response.errors) {
               const errorKeys: any[] = Object.keys(error.error.response.errors);
-
-              for (let i = 0; i < errorKeys.length; i++) {
+              let i: any;
+              let j: any;
+              for (i = 0; i < errorKeys.length; i++) {
                 if (Array.isArray(error.error.response.errors[errorKeys[i]])) {
-                  for (let j = 0; j < error.error.response.errors[errorKeys[i]].length; j++) {
+                  for (j = 0; j < error.error.response.errors[errorKeys[i]].length; j++) {
                     responseErrors.push(error.error.response.errors[errorKeys[i]][j]);
                   }
                 } else {
@@ -77,7 +78,7 @@ export class HttpInterceptorService implements HttpInterceptor {
           }
         }
 
-        if (environment.production == false && error.error) {
+        if (environment.production === false && error.error) {
           this.bottomSheet.open(BlDisplayErrorComponent, {
             data: {
               title: error.error.message,

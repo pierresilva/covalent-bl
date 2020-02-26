@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-developer',
+  selector: 'bl-developer',
   templateUrl: './developer.component.html',
   styleUrls: ['./developer.component.scss'],
 })

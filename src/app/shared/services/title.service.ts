@@ -54,12 +54,16 @@ export class TitleService {
             // If not, we do a little magic on the url to create an approximation
             return this.router.url.split('/')
               .reduce((acc: any, frag: any) => {
-                if (acc && frag) { acc += SEPARATOR; }
+                if (acc && frag) {
+                  acc += SEPARATOR;
+                }
                 return acc + TitleService.ucFirst(frag);
               });
           }
         }),
       )
-      .subscribe((pathString: string) => this.titleService.setTitle(`${APP_TITLE} ${pathString ? SEPARATOR : ''} ${this.translate.instant(pathString)}`));
+      .subscribe(
+        (pathString: string) => this.titleService.setTitle(`${APP_TITLE} ${pathString ? SEPARATOR : ''} ${this.translate.instant(pathString)}`),
+      );
   }
 }
