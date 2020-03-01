@@ -15,6 +15,13 @@ import { BlBadgeModule } from '../bl-components/badge';
 import { MenuComponent } from './menu/menu.component';
 import { AuthButtonComponent } from './auth-button/auth-button.component';
 import { ACLModule } from '../bl-packages/acl';
+import { AddressFormComponent } from './address-form/address-form.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +33,7 @@ import { ACLModule } from '../bl-packages/acl';
     SidenavMenuComponent,
     MenuComponent,
     AuthButtonComponent,
+    AddressFormComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +44,12 @@ import { ACLModule } from '../bl-packages/acl';
     BlAvatarModule,
     BlBadgeModule,
     ACLModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule,
   ],
   exports: [
     NavUserNotificationsComponent,
@@ -46,6 +60,7 @@ import { ACLModule } from '../bl-packages/acl';
     SidenavMenuComponent,
     MenuComponent,
     AuthButtonComponent,
+    AddressFormComponent,
   ],
   entryComponents: [
     NavUserNotificationsComponent,
@@ -56,6 +71,7 @@ import { ACLModule } from '../bl-packages/acl';
     SidenavMenuComponent,
     MenuComponent,
     AuthButtonComponent,
+    AddressFormComponent,
   ],
 })
 export class ComponentsModule { }

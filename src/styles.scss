@@ -54,4 +54,82 @@ a[mat-icon-button] {
   padding-top: 0;
 }
 
+// Adjust your logo position
+.mat-icon {
+  &.mat-icon-logo {
+    position: relative;
+    top: -4px;
+  }
+}
+// Hack for small search box
+.small .td-search-box {
+  .td-search-icon.mat-icon-button {
+    margin: 0;
+    height: 30px;
+    .mat-icon {
+      margin-top: -10px;
+    }
+  }
+  td-search-input {
+    margin-left: 0 !important;
+    margin-bottom: 4px;
+    .mat-form-field {
+      width: auto;
+    }
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+    }
+    .mat-input-infix {
+      padding: 0;
+    }
+    .mat-form-field-infix {
+      border-top: 0;
+    }
+  }
+}
+
+.td-search-input-field {
+  .mat-form-field-wrapper {
+    .mat-form-field-flex {
+      .mat-form-field-label {
+        padding-top: 4px;
+      }
+    }
+  }
+}
+
+.td-navigation-drawer-toolbar-content {
+  .mat-icon {
+    padding-left: 4px;
+  }
+}
+
+.td-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #ffffff !important;
+  z-index: 999 !important;
+}
+
+.layout-centered  {
+  height: calc(100vh - 168px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+  transition: visibility 0.3s linear,opacity 0.3s linear;
+}
+
+.visible {
+  display: block;
+  visibility: visible;
+  transition: visibility 0.3s linear, opacity 0.3s linear;
+}
+
+@import "assets/covalent-icons/covalent-icons";
 @import "./app/shared/bl-components/bl-components";

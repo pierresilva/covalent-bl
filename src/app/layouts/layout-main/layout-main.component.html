@@ -1,0 +1,29 @@
+<td-layout [mode]="'side'"
+           [sidenavWidth]="auth.userLogged ? '64px' : '0px'"
+           [opened]="auth.userLogged">
+  <!--  navigation drawer-->
+  <td-navigation-drawer [icon]="'dashboard'" class="layout-main-navigation-drawer no-scroll-bar" *ngIf="auth.userLogged">
+    <app-layout-main-navigation-drawer></app-layout-main-navigation-drawer>
+  </td-navigation-drawer>
+  <!--  navigation drawer-->
+  <td-layout-nav [toolbarTitle]="(media.registerQuery('gt-xs') | async) ? '' : ''"
+                 logo="assets:teradata"
+                 navigationRoute="/">
+    <button mat-icon-button td-menu-button tdLayoutToggle *ngIf="auth.userLogged">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <!-- main nav -->
+    <div td-toolbar-content layout="row" layout-align="start center" flex>
+      <div flex></div>
+      <bl-theme-selector></bl-theme-selector>
+      <app-auth-button></app-auth-button>
+    </div>
+    <!-- // main nav -->
+    <!-- content -->
+    <router-outlet></router-outlet>
+    <!-- // content -->
+    <!-- footer -->
+    <app-layout-main-footer></app-layout-main-footer>
+    <!-- // footer -->
+  </td-layout-nav>
+</td-layout>

@@ -1,13 +1,13 @@
 @import '~@angular/material/theming';
 @import '~@covalent/core/theming/all-theme';
-// @import '~@covalent/highlight/highlight-theme';
-// @import '~@covalent/markdown/markdown-theme';
+@import '~@covalent/highlight/highlight-theme';
+@import '~@covalent/markdown/markdown-theme';
 
 // Plus imports for other components in your app.
 
 // Custom typography
 $custom-typography: mat-typography-config($button: mat-typography-level(14px, 14px, 400),
-  $font-family: 'Arial, Helvetica, sans-serif'
+$font-family: 'Arial, Helvetica, sans-serif'
 );
 
 // Include the base styles for Angular Material core. We include this here so that you only
@@ -48,8 +48,8 @@ $theme: mat-light-theme($primary, $accent, $warn);
 // that you are using.
 @include angular-material-theme($theme);
 @include covalent-theme($theme);
-// @include covalent-highlight-theme();
-// @include covalent-markdown-theme($theme);
+@include covalent-highlight-theme();
+@include covalent-markdown-theme($theme);
 @include teradata-brand($theme);
 
 /* ------------------------------------------------------------------------------- */
@@ -331,6 +331,15 @@ $background: map-get($theme, background);
   .mat-input-element {
     color: #b0b6b9 !important;
   }
+
+  .toolbar-menu.mat-toolbar.mat-toolbar-single-row {
+    height: 0px;
+    padding-top: 14px;
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.87);
+    }
+  }
 }
 
 
@@ -339,15 +348,38 @@ $background: map-get($theme, background);
 }
 
 input[type="search"] {
-  padding-top: 8px;
-}
-
-.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
-.mat-form-field-empty.mat-form-field-label {
-  padding-top: 8px;
+  padding-top: 6px;
 }
 
 .mat-form-field-appearance-outline .mat-form-field-label {
+  padding-top: 8px;
   top: 1.4em;
   margin-top: -0.25em;
+}
+
+.no-scroll-bar {
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.td-navigation-drawer-toolbar-content {
+  display: none;
+  visibility: hidden;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.layout-main-navigation-drawer .td-nagivation-drawer-toolbar.mat-toolbar.mat-toolbar-single-row {
+  display: none !important;
+}
+
+.toolbar-menu.mat-toolbar.mat-toolbar-single-row {
+  height: 0px;
+  padding-top: 14px;
+
+  nav {
+    background-color: mat-color($background, app-bar);
+    color: mat-color($theme, text);
+  }
 }

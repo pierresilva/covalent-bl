@@ -1,11 +1,12 @@
-<td-layout-manage-list #manageList [opened]="media.registerQuery('gt-sm') | async"
-  [mode]="(media.registerQuery('gt-sm') | async) ? 'side' :  'over'"
-  [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '257px' : '100%'">
+<td-layout-manage-list #manageList
+                       [opened]="(media.registerQuery('gt-sm') | async) ? false : false"
+                       [mode]="(media.registerQuery('gt-sm') | async) ? 'over' :  'over'"
+                       [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '350px' : '100%'">
   <mat-toolbar td-sidenav-content>
     <button mat-icon-button tdLayoutManageListClose [hideWhenOpened]="false">
       <mat-icon>close</mat-icon>
     </button>
-    <span class="push-left">Administration</span>
+    <span class="push-left">{{'app.administration.title' | translate}}</span>
   </mat-toolbar>
   <mat-nav-list td-sidenav-content [tdLayoutManageListClose]="!media.query('gt-sm')">
     <!-- menu here -->
@@ -16,9 +17,8 @@
       <button mat-icon-button tdLayoutManageListOpen [hideWhenOpened]="true">
         <mat-icon>menu</mat-icon>
       </button>
-      <span>{{titleService.titleService.getTitle()}}</span>
+      <span hide-sm hide-xs>{{titleService.titleService.getTitle()}}</span>
       <span flex></span>
-      <!-- <button routerLink="/form" mat-raised-button color="primary" class="text-upper">Create</button> -->
     </div>
   </mat-toolbar>
   <router-outlet></router-outlet>

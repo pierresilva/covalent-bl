@@ -14,11 +14,14 @@ import { BlDisplayErrorComponent } from './services/display-error/display-error.
 import { TranslateModule } from '@ngx-translate/core';
 import { BlComponentsModule } from './bl-components/bl-components.module';
 import { BlPackagesModule } from './bl-packages/bl-packages.module';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { NgxMatDrpModule } from 'ngx-mat-daterange-picker';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
-    declarations: [
-        BlDisplayErrorComponent,
-    ],
+  declarations: [
+    BlDisplayErrorComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -26,27 +29,35 @@ import { BlPackagesModule } from './bl-packages/bl-packages.module';
     ReactiveFormsModule,
     HttpClientModule,
     MaterialModule,
+    CovalentModule,
     ComponentsModule,
     DirectivesModule,
     InterfacesModule,
     BlComponentsModule,
     BlPackagesModule,
+    NgxMatSelectSearchModule,
+    NgxMatDrpModule,
+    // Additional
+    NgxChartsModule,
   ],
-    exports: [
-        RouterModule,
-        HttpClientModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MaterialModule,
-        CovalentModule,
-        ComponentsModule,
-        DirectivesModule,
-        InterfacesModule,
-        BlDisplayErrorComponent,
-        TranslateModule,
-        BlComponentsModule,
-        BlPackagesModule,
-    ],
+  exports: [
+    RouterModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    CovalentModule,
+    ComponentsModule,
+    DirectivesModule,
+    InterfacesModule,
+    BlDisplayErrorComponent,
+    TranslateModule,
+    BlComponentsModule,
+    BlPackagesModule,
+    NgxMatSelectSearchModule,
+    NgxMatDrpModule,
+    NgxChartsModule,
+  ],
   entryComponents: [
     BlDisplayErrorComponent,
   ],

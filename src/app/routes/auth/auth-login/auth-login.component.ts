@@ -115,4 +115,13 @@ export class AuthLoginComponent implements OnInit {
     return '';
   }
 
+  markFormGroupTouched(formGroup: FormGroup) {
+    (<any>Object).values(formGroup.controls).forEach((control) => {
+      if (control.controls) { // control is a FormGroup
+        this.markFormGroupTouched(control);
+      } else { // control is a FormControl
+        control.markAsTouched();
+      }
+    });
+  }
 }

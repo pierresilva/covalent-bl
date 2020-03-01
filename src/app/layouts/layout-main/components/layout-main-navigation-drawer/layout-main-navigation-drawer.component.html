@@ -1,0 +1,41 @@
+
+<!--  <mat-nav-list [tdLayoutClose]="!media.query('gt-sm')">-->
+<!--    <a *ngFor="let item of routes" mat-list-item><mat-icon matListIcon>{{item.icon}}</mat-icon>{{item.title}}</a>-->
+<!--  </mat-nav-list>-->
+<!--  <div td-navigation-drawer-menu>-->
+<!--    <mat-nav-list>-->
+<!--      <a *ngFor="let item of usermenu" mat-list-item><mat-icon matListIcon>{{item.icon}}</mat-icon>{{item.title}}</a>-->
+<!--    </mat-nav-list>-->
+<!--  </div>-->
+
+  <div td-sidenav-content layout="column" layout-fill style="min-height: calc(100vh);">
+    <mat-toolbar>
+      <bl-nav-user-menu></bl-nav-user-menu>
+    </mat-toolbar>
+    <mat-nav-list flex>
+      <a mat-list-item routerLink="/admin" routerLinkActive="active">
+        <mat-icon matListIcon
+                  style="font-size: 32px; padding-left: 0; padding-top: 0px;"
+                  matTooltip="{{'app.administration.title' | translate}}"
+                  matTooltipPosition="after">memory</mat-icon>
+      </a>
+      <!--<a mat-list-item routerLink="/" routerLinkActive="active">
+        <i class="covalent-icons chip"></i>
+      </a>-->
+      <ng-template let-item let-index="index" let-last="last" ngFor [ngForOf]="[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]">
+        <a mat-list-item>
+          <mat-icon matListIcon
+                    [matTooltip]="'Dashboard ' + index"
+                    style="font-size: 32px; padding-left: 0; padding-top: 0px;"
+                    matTooltipPosition="after">dashboard</mat-icon>
+        </a>
+      </ng-template>
+      <mat-divider></mat-divider>
+      <a mat-list-item>
+        <mat-icon matListIcon [matTooltip]="'Add Dashboard'" matTooltipPosition="after">add</mat-icon>
+      </a>
+    </mat-nav-list>
+    <div class="td-layout-footer pad-sm" layout="row" layout-align="space-between center" style="padding-left: 12px;">
+      <mat-icon class="push-left-xs" matTooltip="{{'app.settings.title' | translate}}" matTooltipPosition="after">settings</mat-icon>
+    </div>
+  </div>

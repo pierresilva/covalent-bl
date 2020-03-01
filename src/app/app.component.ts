@@ -6,12 +6,13 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { TitleService } from './shared/services/title.service';
 import { ApiService } from './shared/services/api.service';
 import { ThemeService } from './shared/services/theme.service';
-import { TranslateService } from "@ngx-translate/core";
-import { environment } from "../environments/environment";
-import { LocalStorageService } from "./shared/services/local-storage.service";
+import { TranslateService } from '@ngx-translate/core';
+import { environment } from '../environments/environment';
+import { LocalStorageService } from './shared/services/local-storage.service';
 import { BLA_SERVICE_TOKEN, ITokenService, JWTTokenModel } from './shared/bl-packages/auth';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'app-root',
   template: `<div [class]="currentTheme"><router-outlet></router-outlet></div>`,
 })
@@ -47,6 +48,9 @@ export class AppComponent implements OnInit {
     );
     this._iconRegistry.addSvgIconInNamespace('assets', 'logo',
       this._domSanitizer.bypassSecurityTrustResourceUrl('assets/images/logo.svg'),
+    );
+    this._iconRegistry.addSvgIcon('teradata',
+      this._domSanitizer.bypassSecurityTrustResourceUrl('assets/images/teradata.svg'),
     );
     this._iconRegistry.addSvgIconInNamespace('assets', 'teradata',
       this._domSanitizer.bypassSecurityTrustResourceUrl('assets/images/teradata.svg'),

@@ -1,0 +1,142 @@
+<mat-card>
+  <div layout="row" layout-align="start center" class="pad-sm">
+    <span flex class="push-left-sm">
+      <span class="mat-title">{{'app.admin.languages.title' | translate | uppercase}}</span>
+    </span>
+    <span flex></span>
+    <span class="pad-right-md">
+      <a mat-mini-fab routerLink="/admin/languages/create">
+        <mat-icon>add</mat-icon>
+      </a>
+    </span>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-list>
+    <mat-list-item>
+      <div matLine>
+        <div>
+          <div style="float: left; margin-top: -3px;" *ngIf="adminLanguagesService.sort.value == 'key:asc'">
+            <mat-icon *ngIf="true">keyboard_arrow_up</mat-icon>
+          </div>
+          <div style="float: left; margin-top: -3px;" *ngIf="adminLanguagesService.sort.value == 'key:desc'">
+            <mat-icon *ngIf="true">keyboard_arrow_down</mat-icon>
+          </div>
+          <b (click)="adminLanguagesService.setSort($event)"
+             style="cursor: pointer; padding-top: 2px;"
+             [attr.data-field]="'key'">{{'app.admin.languages.field.key' | translate}}</b>
+        </div>
+      </div>
+      <span hide-sm hide-xs flex="20">
+        <div style="float: left; margin-top: -3px;" *ngIf="adminLanguagesService.sort.value == 'group:asc'">
+          <mat-icon *ngIf="true">keyboard_arrow_up</mat-icon>
+        </div>
+        <div style="float: left; margin-top: -3px;" *ngIf="adminLanguagesService.sort.value == 'group:desc'">
+          <mat-icon *ngIf="true">keyboard_arrow_down</mat-icon>
+        </div>
+        <div style="float: left;">
+          <b (click)="adminLanguagesService.setSort($event)"
+             style="cursor: pointer;"
+             [attr.data-field]="'group'">{{'app.admin.languages.field.group' | translate}}</b>
+        </div>
+      </span>
+      <span hide-sm hide-xs flex="30">
+        <div style="float: left;">
+          <b>{{'app.admin.languages.langs' | translate}}</b>
+        </div>
+      </span>
+      <span flex="10">
+        <mat-icon (click)="adminLanguagesService.resetFilter(); adminLanguagesService.searchToggle()"
+                  style="cursor: pointer;">zoom_in</mat-icon>
+      </span>
+    </mat-list-item>
+    <mat-list-item id="advanced-search-admin-languages" style="display: none; transition: display 0.5s linear;">
+      <div matLine>
+        <input type="text"
+               class="browser-default search-input"
+               (keyup.enter)="adminLanguagesService.setFilter()"
+               [attr.data-field]="'key'"
+               placeholder="{{'app.search_by' | translate}} {{'app.admin.languages.field.key' | translate}}"
+               style="border: none; width: 100%; height: 48px;">
+      </div>
+      <span hide-sm hide-xs flex="20">
+        <input type="text"
+               class="browser-default search-input"
+               (keyup.enter)="adminLanguagesService.setFilter()"
+               [attr.data-field]="'group'"
+               placeholder="{{'app.search_by' | translate}} {{'app.admin.languages.field.group' | translate}}"
+               style="border: none; width: 100%; height: 48px;">
+      </span>
+      <span hide-sm hide-xs flex="30">
+        <input type="text"
+               class="browser-default search-input"
+               (keyup.enter)="adminLanguagesService.setFilter()"
+               [attr.data-field]="'text'"
+               placeholder="{{'app.search_by' | translate}} {{'app.admin.languages.langs' | translate}}"
+               style="border: none; width: 100%; height: 48px;">
+      </span>
+      <span flex="10">
+<!--        <mat-icon (click)="search($event)" style="cursor: pointer;">search</mat-icon>-->
+      </span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <div *tdLoading="'isLoading'; mode:'indeterminate'; type:'circle'; strategy:'overlay'; color:'accent'">
+      <ng-container *ngIf="adminLanguagesService.adminLanguagesLanguages.value.length">
+        <ng-template let-item let-last="last" let-index="index" ngFor [ngForOf]="adminLanguagesService.adminLanguagesLanguages.value">
+          <mat-list-item>
+            <h3 matLine flex-gt-sm="40"> {{item.key}} </h3>
+            <span hide-sm hide-xs flex="20">
+              {{item.group}}
+            </span>
+            <span hide-sm hide-xs flex="30">
+              <ng-container *ngFor="let lang of adminLanguagesService.objectKeys(item.text); let i = index">
+                <span>{{lang}} </span>
+              </ng-container>
+            </span>
+            <span flex="10">
+              <button mat-icon-button
+                      [matMenuTriggerFor]="toolbarMenu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #toolbarMenu="matMenu">
+                <button mat-menu-item>
+                  <mat-icon>delete</mat-icon>
+                  <span>Delete</span>
+                </button>
+                <button mat-menu-item [routerLink]="'/admin/languages/edit/' + item.id">
+                  <mat-icon>edit</mat-icon>
+                  <span>Edit</span>
+                </button>
+              </mat-menu>
+            </span>
+          </mat-list-item>
+          <mat-divider *ngIf="!last"></mat-divider>
+        </ng-template>
+      </ng-container>
+      <ng-container *ngIf="!adminLanguagesService.adminLanguagesLanguages.value.length">
+        <!-- Start pattern -->
+        <div layout="column" layout-align="center center" class="tc-accent mat-typography pad-lg">
+          <mat-icon matListAvatar class="text-super push-bottom">cancel</mat-icon>
+          <h2>{{'app.no_results' | translate | uppercase}}</h2>
+        </div>
+        <!-- end pattern -->
+      </ng-container>
+    </div>
+  </mat-list>
+  <mat-divider></mat-divider>
+  <td-paging-bar #pagingBar
+                 (change)="adminLanguagesService.getAdminLanguagesLanguages($event.page)"
+                 [pageSize]="adminLanguagesService.perPages"
+                 [total]="adminLanguagesService.paginationMeta.value.total">
+    <span hide-xs hide-sm>{{'app.per_page' | translate}}:</span>
+    <mat-select hide-xs
+                hide-sm
+                (change)="adminLanguagesService.getAdminLanguagesLanguages(adminLanguagesService.perPages)"
+                [(ngModel)]="adminLanguagesService.perPages"
+                [style.width.px]="50">
+      <mat-option *ngFor="let size of [5,10,15,20]" [value]="size">
+        {{size}}
+      </mat-option>
+    </mat-select>
+    {{adminLanguagesService.paginationMeta.value.from}} - {{adminLanguagesService.paginationMeta.value.to}}<span hide-xs hide-sm> {{'app.of' | translate}} {{adminLanguagesService.paginationMeta.value.total}}</span>
+  </td-paging-bar>
+</mat-card>

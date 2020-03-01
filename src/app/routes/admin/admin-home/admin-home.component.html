@@ -1,5 +1,31 @@
+<!--
+<div class="pad-none bgc-contrast">
+  <nav  mat-stretch-tabs mat-tab-nav-bar class="text-upper" flex>
+    <a mat-tab-link [active]="true">
+      <span hide-xs>Home</span>
+      <span hide-gt-xs><mat-icon>home</mat-icon></span>
+    </a>
+    <a mat-tab-link>
+      <span hide-xs>Technology</span>
+      <span hide-gt-xs><mat-icon>laptop_mac</mat-icon></span>
+    </a>
+    <a mat-tab-link>
+      <span hide-xs>Locations</span>
+      <span hide-gt-xs><mat-icon>language</mat-icon></span>
+    </a>
+    <a mat-tab-link>
+      <span hide-xs>Job Openings</span>
+      <span hide-gt-xs><mat-icon>assignment</mat-icon></span>
+    </a>
+    <a mat-tab-link>
+      <span hide-xs>Leadership</span>
+      <span hide-gt-xs><mat-icon>people</mat-icon></span>
+    </a>
+  </nav>
+</div>
+
 <div layout="row" class="pad" layout-wrap>
-  <div flex-gt-sm="50" flex="100">
+  <div flex="100">
     <mat-card>
       <mat-card-title>Standard Card</mat-card-title>
       <mat-card-subtitle>Subtitle</mat-card-subtitle>
@@ -16,11 +42,26 @@
     </mat-card>
   </div>
 
-  <div flex-gt-sm="50" flex="100">
+  <div flex="100">
     <mat-card>
       <mat-card-title>
         <div layout="row" layout-align="start center">
           <span flex>Card title</span>
+          <span layout="row" class="push-left-sm push-right mat-body-1">
+        <mat-form-field [floatLabel]="'never'" [style.width.px]="100">
+          <input matInput [matDatepicker]="pickerFrom" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+          <mat-datepicker #pickerFrom></mat-datepicker>
+        </mat-form-field>
+      </span>
+          <span hide-xs class="mat-body-2 push-right"> to </span>
+          <span layout="row" class="mat-body-1">
+        <mat-form-field [floatLabel]="'never'" [style.width.px]="100">
+          <input matInput [matDatepicker]="pickerTo" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+          <mat-datepicker #pickerTo></mat-datepicker>
+        </mat-form-field>
+      </span>
           <span>
             <button mat-icon-button matTooltip="Card settings" [mat-menu-trigger-for]="settings4">
               <mat-icon>more_vert</mat-icon>
@@ -39,3 +80,22 @@
   </div>
 
 </div>
+-->
+<div class="layout-centered">
+  <mat-card class="center" flex="40">
+    <mat-card-title>Empty state due to no initial content</mat-card-title>
+    <mat-card-subtitle>use a primary and secondary action buttons to add different possible content</mat-card-subtitle>
+    <mat-card-content>
+      <!-- Start pattern -->
+      <div layout="column" layout-align="center center" class="tc-grey-500 mat-typography pad-lg">
+        <mat-icon matListAvatar class="text-super push-bottom">chrome_reader_mode</mat-icon>
+        <h2>No blog posts</h2>
+        <h3>You have not created any posts</h3>
+        <button mat-raised-button color="accent" class="text-upper">Create Post</button>
+        <button mat-button class="text-upper push-top">Create Category</button>
+      </div>
+      <!-- end pattern -->
+    </mat-card-content>
+  </mat-card>
+</div>
+

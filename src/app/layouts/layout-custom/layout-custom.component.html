@@ -7,11 +7,16 @@
       <mat-icon>menu</mat-icon>
     </button>
     <div td-toolbar-content layout="row" layout-align="center center" flex>
-      <span [routerLink]="['/']" class="cursor-pointer text-upper">Sandbox</span>
+      <span [routerLink]="['/']" class="cursor-pointer text-upper"><mat-icon [svgIcon]="'teradata'" style="width: 120px; padding-top: 6px;"></mat-icon></span>
       <span flex></span>
       <bl-theme-selector></bl-theme-selector>
+      <bl-nav-lang-selector></bl-nav-lang-selector>
       <app-auth-button></app-auth-button>
+
+      <bl-nav-user-notifications *ngIf="authService.userLogged"></bl-nav-user-notifications>
+<!--      <bl-nav-user-menu *ngIf="authService.userLogged"></bl-nav-user-menu>-->
     </div>
+
     <router-outlet></router-outlet>
   </td-layout-nav>
 </td-layout>

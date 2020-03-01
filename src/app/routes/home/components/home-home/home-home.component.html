@@ -1,3 +1,27 @@
+<div class="pad-none">
+  <nav  mat-stretch-tabs mat-tab-nav-bar class="bgc-neutral text-upper" flex>
+    <a mat-tab-link [active]="true">
+      <span hide-xs>Home</span>
+      <span hide-gt-xs><mat-icon>home</mat-icon></span>
+    </a>
+    <a mat-tab-link>
+      <span hide-xs>Technology</span>
+      <span hide-gt-xs><mat-icon>laptop_mac</mat-icon></span>
+    </a>
+    <a mat-tab-link>
+      <span hide-xs>Locations</span>
+      <span hide-gt-xs><mat-icon>language</mat-icon></span>
+    </a>
+    <a mat-tab-link>
+      <span hide-xs>Job Openings</span>
+      <span hide-gt-xs><mat-icon>assignment</mat-icon></span>
+    </a>
+    <a mat-tab-link>
+      <span hide-xs>Leadership</span>
+      <span hide-gt-xs><mat-icon>people</mat-icon></span>
+    </a>
+  </nav>
+</div>
 <div flex>
   <div class="bgc-td-slate pad-xl">
     <div layout="row" layout-align="start center">
@@ -9,6 +33,22 @@
       </div>
     </div>
   </div>
+  <div layout="row">
+    <td-message #messageDemo
+                color="warn"
+                class="pad-sm"
+                label="Hide me!"
+                sublabel="You can toggle my visibility & add a class!">
+      <button td-message-actions
+              mat-icon-button
+              (click)="messageDemo.close()">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </td-message>
+    <button mat-button color="accent" (click)="messageDemo.toggle()">
+      Toggle Visibility
+    </button>
+  </div>
   <div class="pad" layout="row" layout-align="start center">
     <h3 flex class="mat-headline tc-grey-700 pad-left pad-top push-bottom-none text-upper">Layouts</h3>
   </div>
@@ -17,20 +57,123 @@
       <div class="fav-list-item" flex-gt-xs="25" flex="50">
         <mat-card href [routerLink]="['layouts', item.route]" class="mat-card-colored">
           <mat-toolbar [ngClass]="'bgc-' + item.color" layout="column" layout-align="center center" layout-padding
-            [routerLink]="['layouts', item.route]">
+                       [routerLink]="['layouts', item.route]">
             <mat-icon>{{item.icon}}</mat-icon>
           </mat-toolbar>
           <div class="card-content" [routerLink]="['layouts', item.route]">
             <div layout="column" layout-padding>
               <div class="mat-subheading-2 text-truncate push-none" [matTooltip]="item.title"
-                matTooltipShowDelay="1000">
+                   matTooltipShowDelay="1000">
                 {{item.title}}</div>
               <div class="mat-body-1 text-truncate push-none tc-grey-700" [matTooltip]="item.description"
-                matTooltipShowDelay="1000">{{item.description}}</div>
+                   matTooltipShowDelay="1000">{{item.description}}</div>
             </div>
           </div>
         </mat-card>
       </div>
     </ng-template>
   </div>
+  <section class="bgc-blue-A700 tc-white"  tdMediaToggle="gt-xs" [mediaClasses]="['pad-top-md', 'pad-bottom-xl']">
+    <h2 class="mat-display-1 text-upper text-center push-bottom">Work with bleeding edge technology</h2>
+    <div layout="row" layout-align-gt-xs="center center">
+      <div flex-gt-xs="80" layout="row" layout-wrap>
+        <ng-template let-item let-last="last" ngFor [ngForOf]="[0,1,2,3]">
+          <div class="text-center" flex-xs="50" flex-gt-xs="25">
+            <mat-icon class="push" style="height:auto;width:auto;" svgIcon="assets:covalent-mark"></mat-icon>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="text-center push-top">
+      <button mat-raised-button color="accent" class="mat-button-lg text-upper">View Technology</button>
+    </div>
+  </section>
+  <div layout="row" class="pad" layout-wrap>
+    <ng-template let-item let-index="index" ngFor [ngForOf]="layouts">
+      <div class="fav-list-item" flex-gt-xs="25" flex="50">
+        <mat-card href [routerLink]="['layouts', item.route]" class="mat-card-colored">
+          <mat-toolbar [ngClass]="'bgc-' + item.color" layout="column" layout-align="center center" layout-padding
+                       [routerLink]="['layouts', item.route]">
+            <mat-icon>{{item.icon}}</mat-icon>
+          </mat-toolbar>
+          <div class="card-content" [routerLink]="['layouts', item.route]">
+            <div layout="column" layout-padding>
+              <div class="mat-subheading-2 text-truncate push-none" [matTooltip]="item.title"
+                   matTooltipShowDelay="1000">
+                {{item.title}}</div>
+              <div class="mat-body-1 text-truncate push-none tc-grey-700" [matTooltip]="item.description"
+                   matTooltipShowDelay="1000">{{item.description}}</div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </ng-template>
+  </div>
+  <section class="bgc-green-A700">
+    <div layout-gt-xs="row">
+      <div flex="40" layout="row" layout-align="center center">
+        <mat-icon class="push" style="height:auto; width:auto;" svgIcon="assets:covalent-mark"></mat-icon>
+      </div>
+      <div flex class="pad" tdMediaToggle="gt-xs" [mediaClasses]="['pad-xxl']">
+        <div class="push-top-xxl" hide-xs></div>
+        <h3 class="mat-display-1 tc-white push-top-xs push-bottom-sm">The most desirable locations</h3>
+        <p class="mat-title tc-blue-50">Austin, Boston, San Diego and The Bay Area!</p>
+        <button color="accent" mat-raised-button class="push-bottom-md text-upper">View More</button>
+        <div class="push-top-xxl" hide-xs></div>
+      </div>
+    </div>
+  </section>
+  <div layout="row" class="pad" layout-wrap>
+    <div flex="100">
+      <h3>Multiple selection with Select All Checkbox</h3>
+    </div>
+
+    <div flex="100">
+      <mat-form-field>
+        <mat-select [formControl]="bankMultiCtrl" placeholder="Banks" [multiple]="true" #multiSelect>
+          <ngx-mat-select-search [showToggleAllCheckbox]="true" (toggleAll)="toggleSelectAll($event)"
+                                 [formControl]="bankMultiFilterCtrl"></ngx-mat-select-search>
+          <mat-option *ngFor="let bank of filteredBanksMulti | async" [value]="bank">
+            {{bank.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div flex="100">
+      Selected Banks:
+
+      <ul *ngFor="let bank of bankMultiCtrl?.value">
+        <li>{{bank.name}}</li>
+      </ul>
+    </div>
+  </div>
+  <div layout="row" class="pad">
+    <div layout="col">
+      <app-address-form></app-address-form>
+    </div>
+    <div layout="col">
+      <mat-card class="shipping-card">
+        <mat-card-content>
+          <td-dynamic-forms [elements]="elements">
+            <ng-template let-element ngFor [ngForOf]="elements">
+              <ng-template let-control="control" [tdDynamicFormsError]="element.name">
+            <span *ngIf="control.touched || !control.pristine">
+              <span *ngIf="control.hasError('required')">Required</span>
+              <span *ngIf="control.hasError('min')">Min value: {{element.min}}</span>
+              <span *ngIf="control.hasError('max')">Max value: {{element.max}}</span>
+              <span *ngIf="control.hasError('minlength')">Min length value: {{element.minLength}}</span>
+              <span *ngIf="control.hasError('maxlength')">Max length value: {{element.minLength}}</span>
+            </span>
+              </ng-template>
+            </ng-template>
+          </td-dynamic-forms>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+  </div>
 </div>
+<a mat-fab color="accent" matTooltip="Contact Us" matTooltipPosition="above" class="mat-fab-position-bottom-right fixed">
+  <mat-icon>send</mat-icon>
+</a>

@@ -1,0 +1,78 @@
+<mat-card>
+  <div layout="row" layout-align="start center" class="pad-sm">
+    <span class="push-left-sm">
+      <a mat-icon-button routerLink="/admin/languages">
+        <mat-icon>keyboard_backspace</mat-icon>
+      </a>
+    </span>
+    <span flex>
+      <span class="mat-title">
+        {{'app.create' | translate | uppercase}} {{'app.admin.languages.title' | translate | uppercase}}
+      </span>
+    </span>
+    <span class="pad-right-md">
+      <a mat-mini-fab (click)="onSubmit()">
+        <mat-icon>save</mat-icon>
+      </a>
+    </span>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate class="example-container">
+      <mat-form-field appearance="outline">
+        <mat-label>{{'app.admin.languages.field.key' | translate}}</mat-label>
+        <input matInput
+               required
+               name="key"
+               #key="ngModel"
+               [(ngModel)]="adminLanguagesService.adminLanguagesLanguage.value.key"
+               placeholder="{{'app.admin.languages.field.key' | translate}}">
+        <mat-error align="start" *ngIf="key.invalid">{{getErrorMessage(form.controls['key'])}}</mat-error>
+        <mat-hint align="end">Llave para la traducción</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{'app.admin.languages.field.group' | translate}}</mat-label>
+        <input matInput
+               required
+               name="group"
+               #group="ngModel"
+               [(ngModel)]="adminLanguagesService.adminLanguagesLanguage.value.group"
+               placeholder="{{'app.admin.languages.field.group' | translate}}">
+        <mat-error *ngIf="group.invalid">{{getErrorMessage(form.controls['group'])}}</mat-error>
+        <mat-hint align="end">Grupo de la traducción</mat-hint>
+      </mat-form-field>
+
+      <form #text="ngForm" layout="row" flex novalidate>
+        <mat-form-field appearance="outline" flex="50" class="pad-right-sm">
+          <mat-label>en</mat-label>
+          <input matInput
+                 required
+                 [name]="'en'"
+                 #en="ngModel"
+                 [(ngModel)]="adminLanguagesService.adminLanguagesLanguage.value.text.en"
+                 placeholder="EN">
+          <mat-error *ngIf="en.invalid">{{getErrorMessage(text.controls['en'])}}</mat-error>
+          <mat-hint align="end">Traducción en Inglés</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" flex="50">
+          <mat-label>es</mat-label>
+          <input matInput
+                 required
+                 [name]="'es'"
+                 #es="ngModel"
+                 [(ngModel)]="adminLanguagesService.adminLanguagesLanguage.value.text.es"
+                 placeholder="ES">
+          <mat-error *ngIf="es.invalid">{{getErrorMessage(text.controls['es'])}}</mat-error>
+          <mat-hint align="end">Traducción en Español</mat-hint>
+        </mat-form-field>
+      </form>
+
+    </form>
+  </mat-card-content>
+  <!--<mat-divider></mat-divider>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>-->
+</mat-card>

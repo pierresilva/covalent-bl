@@ -9,7 +9,8 @@ import { TitleService } from '../../shared/services/title.service';
 })
 export class AdminComponent implements OnInit {
 
-  data: Object[] = [{
+  data: Object[] = [
+    {
     'created_at': '2015-11-04T19:00:31Z',
     'name': 'Change data capture for sales DB',
     'owner': 'Kyle',
@@ -39,7 +40,8 @@ export class AdminComponent implements OnInit {
     'name': 'On the fly analytics',
     'owner': 'Jenn',
     'updated_at': '2016-12-09T19:00:31Z',
-  }];
+  }
+  ];
 
   columnOptions: any[] = [{
     name: 'Updated',
@@ -51,6 +53,10 @@ export class AdminComponent implements OnInit {
   sortKey: string = this.columnOptions[0].value;
   headers: any = {};
   pageSize: number = 5;
+
+  // Timeframe
+  dateFrom: Date = new Date(new Date().getTime() - (2 * 60 * 60 * 24 * 1000));
+  dateTo: Date = new Date(new Date().getTime() - (1 * 60 * 60 * 24 * 1000));
 
   constructor(
     public media: TdMediaService,

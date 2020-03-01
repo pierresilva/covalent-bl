@@ -8,7 +8,11 @@ import { LayoutFullscreenComponent } from './layout-fullscreen/layout-fullscreen
 import { LayoutAdminComponent } from './layout-admin/layout-admin.component';
 import { LayoutAdminMainMenuComponent } from './layout-admin/components/layout-admin-main-menu/layout-admin-main-menu.component';
 import { LayoutCustomComponent } from './layout-custom/layout-custom.component';
-
+import { LayoutComponentsComponent } from './layout-components/layout-components.component';
+import { LayoutFocusedComponent } from './layout-focused/layout-focused.component';
+import { LayoutMainComponent } from './layout-main/layout-main.component';
+import { LayoutMainNavigationDrawerComponent } from './layout-main/components/layout-main-navigation-drawer/layout-main-navigation-drawer.component';
+import { LayoutMainFooterComponent } from './layout-main/components/layout-main-footer/layout-main-footer.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +23,11 @@ import { LayoutCustomComponent } from './layout-custom/layout-custom.component';
     LayoutAdminComponent,
     LayoutAdminMainMenuComponent,
     LayoutCustomComponent,
+    LayoutComponentsComponent,
+    LayoutFocusedComponent,
+    LayoutMainComponent,
+    LayoutMainNavigationDrawerComponent,
+    LayoutMainFooterComponent,
   ],
   imports: [
     CommonModule,

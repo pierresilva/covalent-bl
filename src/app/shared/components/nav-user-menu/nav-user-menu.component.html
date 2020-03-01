@@ -1,4 +1,4 @@
-<span *ngIf="true">
+<span *ngIf="authService.userLogged">
   <bl-badge [blDot]="true" [matMenuTriggerFor]="userMenu" style="cursor: pointer;">
     <bl-avatar blIcon="perm_identity" [blShape]="'circle'" [blSrc]="'assets/images/avatar.png'"></bl-avatar>
   </bl-badge>

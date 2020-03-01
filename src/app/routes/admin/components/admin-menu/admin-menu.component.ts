@@ -10,9 +10,16 @@ export class AdminMenuComponent implements OnInit {
 
   navmenu: Object[] = [
     {
+      icon: 'language',
+      route: '/admin/languages',
+      title: 'app.admin.languages.title',
+      description: 'app.admin.languages.description',
+      children: [],
+    },
+    {
       icon: 'looks_one',
       // tslint:disable-next-line:no-null-keyword
-      route: null,
+      route: '#',
       title: 'First item',
       description: 'Item description',
       children: [
@@ -23,37 +30,37 @@ export class AdminMenuComponent implements OnInit {
           description: 'Item description',
         },
         {
-          icon: 'looks_one',
+          icon: 'looks_two',
           route: '.',
-          title: 'First item',
+          title: 'Second item',
           description: 'Item description',
         },
       ],
     },
     {
       icon: 'looks_two',
-      route: '.',
+      route: '#',
       title: 'Second item',
       description: 'Item description',
       children: [],
     },
     {
       icon: 'looks_3',
-      route: '.',
+      route: '#',
       title: 'Third item',
       description: 'Item description',
       children: [],
     },
     {
       icon: 'looks_4',
-      route: '.',
+      route: '#',
       title: 'Fourth item',
       description: 'Item description',
       children: [],
     },
     {
       icon: 'looks_5',
-      route: '.',
+      route: '#',
       title: 'Fifth item',
       description: 'Item description',
       children: [],

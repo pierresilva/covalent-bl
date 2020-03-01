@@ -25,6 +25,7 @@ import { environment } from '../environments/environment';
 
 import { ACLModule } from './shared/bl-packages/bl-packages.module';
 import { AuthModule, AuthConfig, SimpleInterceptor } from './shared/bl-packages/auth';
+
 export function blAuthConfig(): AuthConfig {
   return Object.assign(new AuthConfig(), {
     login_url: '/auth',
@@ -48,6 +49,7 @@ export function StartupServiceFactory(
 ): Function {
   return () => startupService.load();
 }
+
 const APPINIT_PROVIDES: any = [
   StartupService,
   {
@@ -88,8 +90,8 @@ const APPINIT_PROVIDES: any = [
       useValue: localStorage.getItem(environment.app_prefix + 'lang'),
     },
 
-    { provide: HTTP_INTERCEPTORS, useClass: SimpleInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: DefaultInterceptor, multi: true },
+    {provide: HTTP_INTERCEPTORS, useClass: SimpleInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: DefaultInterceptor, multi: true},
 
     ...APPINIT_PROVIDES,
   ],
@@ -102,7 +104,7 @@ export class AppModule {
     return {
       ngModule: AuthModule,
       providers: [
-        { provide: AuthConfig, useFactory: blAuthConfig },
+        {provide: AuthConfig, useFactory: blAuthConfig},
       ],
     };
   }

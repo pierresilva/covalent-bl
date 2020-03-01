@@ -18,6 +18,13 @@ const routes: Routes = [
           title: 'app.administration.title',
         },
       },
+      {
+        path: 'languages',
+        data: {
+          title: 'app.admin.languages.title',
+        },
+        loadChildren: './admin-languages/admin-languages.module#AdminLanguagesModule',
+      },
     ],
   },
 ];
